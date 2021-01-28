@@ -6,6 +6,7 @@
   "scripts": {
     "dist": "rollup -c ./rollup.dist.js",
     "make": "rollup -c ./rollup.make.js -w",
+    "makeDocs": "phpdocWpHelpers && npm run make",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rowan Weathers (https://rowanays.com/)",
