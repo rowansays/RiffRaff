@@ -4,7 +4,7 @@
     width: 100%;
 }
 
-@media (min-width: {{ breakpoints['md'] }}) {
+@media (min-width: 550px) {
     .phpdocumentor-column {
         margin-left: 4%;
     }

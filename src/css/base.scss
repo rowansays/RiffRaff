@@ -1,3 +1,40 @@
+@use './partials/headings.css';
+
+@use './partials/paragraph.css';
+@use './partials/images.css';
+@use './partials/line.css';
+@use './partials/section.css';
+@use './partials/grid.css';
+@use './partials/links.css';
+@use './partials/buttons.css';
+@use './partials/forms.css';
+@use './partials/lists.css';
+@use './partials/code.css';
+@use './partials/blockquote.css';
+@use './partials/tables.css';
+
+@use './partials/header.css';
+@use './partials/header-title.css';
+@use './partials/topnav.css';
+@use './partials/sidebar.css';
+@use './partials/admonition.css';
+@use './partials/breadcrumbs.css';
+@use './partials/search.css';
+@use './partials/search-results.css';
+
+@use 'partials/summary.css';
+@use 'partials/description.css';
+@use 'partials/element.css';
+@use 'partials/signature.css';
+@use 'partials/table-of-contents.css';
+@use 'partials/element-found-in.css';
+@use 'partials/class-graph.css';
+@use 'partials/tag-list.css';
+
+.visually-hidden {
+  display: none;
+}
+
 :root {
     /* Typography */
     --font-primary: 'Source Sans Pro', Helvetica, Arial, sans-serif;
@@ -69,4 +106,15 @@
     --spacing-xxxxl: calc(var(--spacing-base-size) * var(--spacing-scale-ratio) * var(--spacing-scale-ratio) * var(--spacing-scale-ratio) * var(--spacing-scale-ratio) * var(--spacing-scale-ratio));
 
     --border-radius-base-size: 3px;
+}
+
+
+/* Base Styles
+-------------------------------------------------- */
+body {
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    font-size: var(--text-md);
+    letter-spacing: var(--letter-spacing--primary);
+    line-height: var(--line-height--primary);
 }

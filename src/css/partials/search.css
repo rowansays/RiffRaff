@@ -43,7 +43,7 @@
     flex: 1;
 }
 
-@media (min-width: {{ breakpoints['menu'] }}) {
+@media (min-width: 1000px) {
     .phpdocumentor-search {
         min-width: auto;
         max-width: 20rem;

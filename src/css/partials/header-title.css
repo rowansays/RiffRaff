@@ -20,7 +20,7 @@
     font-weight: normal;
 }
 
-@media (min-width: {{ breakpoints['menu'] }}) {
+@media (min-width: 1000px) {
     #Nameplate {
         width: 30.6666666667%;
         border-right: var(--sidebar-border-color) solid 1px;

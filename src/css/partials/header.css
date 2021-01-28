@@ -24,7 +24,7 @@
     padding-top: var(--spacing-md);
 }
 
-@media (min-width: {{ breakpoints['menu'] }}) {
+@media (min-width: 1000px) {
     .phpdocumentor-header {
         flex-direction: row;
         padding: var(--spacing-lg) var(--spacing-lg);
@@ -36,13 +36,13 @@
     }
 }
 
-@media (min-width: {{ breakpoints['xl'] }}) {
+@media (min-width: 1000px) {
     .phpdocumentor-header {
         padding-top: 0;
         padding-bottom: 0;
     }
 }
-@media (min-width: {{ breakpoints['xxl'] }}) {
+@media (min-width: 1200px) {
     .phpdocumentor-header {
         padding: 0;
     }

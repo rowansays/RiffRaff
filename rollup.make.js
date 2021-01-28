@@ -30,8 +30,7 @@ export default [
         contentBase: ['./make'],
       }),
       livereload({
-          watch: ['./make', './src'],
-          exts: ['html', 'js', 'css'],
+        watch: ['./make']
       }),
       postcss({
         extract: path.resolve('make/style.css')

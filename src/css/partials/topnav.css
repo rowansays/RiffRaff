@@ -47,7 +47,7 @@
     border-bottom: 1px dotted var(--text-color);
 }
 
-@media (min-width: {{ breakpoints['menu'] }}) {
+@media (min-width: 1000px) {
     .phpdocumentor-topnav {
         max-height: none;
         overflow: visible;

@@ -58,7 +58,7 @@
     font-weight: normal;
 }
 
-@media (min-width: {{ breakpoints['md'] }}) {
+@media (min-width: 550px) {
     .phpdocumentor-sidebar {
         border-right: var(--sidebar-border-color) solid 1px;
     }
@@ -89,7 +89,7 @@
     padding-top: var(--spacing-md);
 }
 
-@media (min-width: {{ breakpoints['md'] }}) {
+@media (min-width: 550px) {
     .phpdocumentor-sidebar {
         overflow: visible;
         max-height: 100%;
