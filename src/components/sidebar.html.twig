@@ -46,15 +46,27 @@
     </section>
     {% endif %}
 
-    <section class="phpdocumentor-sidebar__category">
+    {% if project.settings.custom['graphs.enabled'] or filesWithDeprecatedElements is not empty or filesWithErrors is not empty or filesWithMarkers is not empty %}
+      <section class="phpdocumentor-sidebar__category">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+
         {% if project.settings.custom['graphs.enabled'] %}
-        <h3 class="phpdocumentor-sidebar__root-package"><a href="graphs/classes.html">Class Diagram</a></h3>
+          <h3 class="phpdocumentor-sidebar__root-package"><a href="graphs/classes.html">Class Diagram</a></h3>
         {% endif %}
-        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
-        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
-        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
-    </section>
+
+        {% if filesWithDeprecatedElements is not empty %}
+          <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        {% endif %}
+
+        {% if filesWithErrors is not empty %}
+          <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        {% endif %}
+
+        {% if filesWithMarkers is not empty %}
+          <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+        {% endif %}
+      </section>
+    {% endif %}
 
     <section class="phpdocumentor-sidebar__category">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
