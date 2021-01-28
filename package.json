@@ -4,8 +4,22 @@
   "description": "Custom template for phpDocumentor",
   "main": "index.js",
   "scripts": {
+    "dist": "rollup -c ./rollup.dist.js",
+    "make": "rollup -c ./rollup.make.js -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rowan Weathers (https://rowanays.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "postcss": "^8.2.4",
+    "rollup": "^2.38.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "sass": "^1.32.5"
+  }
 }
