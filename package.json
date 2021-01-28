@@ -1,0 +1,11 @@
+{
+  "name": "@rowansays/riffraff",
+  "version": "0.0.1",
+  "description": "Custom template for phpDocumentor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rowan Weathers (https://rowanays.com/)",
+  "license": "MIT"
+}
