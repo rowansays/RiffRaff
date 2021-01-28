@@ -1,0 +1,13 @@
+@use 'Color';
+@use 'Font';
+
+@function blockMargin() {
+  @return 1.5rem 0;
+}
+@mixin citation() {
+  color: Color.primary('copy');
+  font-family: Font.headline();
+  font-size: 0.80rem;
+  font-style: normal;
+  text-transform: uppercase;
+}

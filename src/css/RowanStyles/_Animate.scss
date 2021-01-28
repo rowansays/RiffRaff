@@ -1,0 +1,16 @@
+/**
+ * Spin mixin
+ *
+ * @param {Number} $speed [4s] How fast the element will spin.
+ */
+@mixin spin($speed: 4s) {
+	$id: spin-#{unique-id()};
+  @keyframes #{$id} {
+    from { transform : rotate( 0deg ); }
+    to { transform : rotate( 360deg ); }
+	}
+	animation-name: $id;
+	animation-duration: $speed;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}

@@ -1,0 +1,130 @@
+/**
+ * General HTML Elements
+ */
+
+@use 'Color';
+@use 'Font';
+@use 'Typography' as Typo;
+@use 'Svg';
+
+html {
+	box-sizing : border-box;
+	font-size : 14px;
+	margin : 0;
+	padding : 0;
+}
+@media( min-width : 500px ) {
+	html {
+		font-size : 16px;
+	}
+}
+@media( min-width : 700px ) {
+	html {
+		font-size : 18px;
+	}
+}
+@media( min-width : 900px ) {
+	html {
+		font-size : 20px;
+	}
+}
+*, *:before, *:after {
+	box-sizing : inherit;
+}
+b {
+	font-weight : 500;
+}
+big {
+	font-size : inherit;
+}
+body {
+	background-color : Color.primary('bg');
+	color : Color.primary('copy');
+	font-family: Font.copy();
+	line-height : 1.5;
+	margin : 0;
+	padding : 0;
+}
+cite {
+	@include Typo.citation();
+}
+code {
+	border-style : solid;
+	border-width : 1px;
+	display : inline-block;
+	font-size : 0.9rem;
+	font-weight : normal;
+	line-height : 1.1;
+	padding : 0 0.25rem 0.15rem 0.25rem;
+}
+h1, h2, h3, h4 {
+	font-family : Font.headline();
+	font-size : 2.50rem;
+	font-weight : 300;
+	letter-spacing : -0.05rem;
+	line-height : 1;
+	margin: Typo.blockMargin();
+}
+h1 {
+	font-size : 2.50rem;
+  color: Color.primary('accent');
+}
+h2 {
+	font-size : 2.00rem;
+}
+h3 {
+	font-size : 1.50rem;
+}
+h4 {
+	font-size : 1.25rem;
+}
+h1 strong, h2 strong, h3 strong, h4 strong {
+	font-weight : 500;
+}
+h5, h6 {
+	font-family: Font.copy();
+	font-size : 1.00rem;
+	font-weight : 700;
+	letter-spacing : -0.05rem;
+	line-height : 1.1;
+	margin : 0 0 0.125rem;
+}
+pre {
+	border-style : solid;
+	border-width : 1px;
+	font-size : 0.9rem;
+	overflow : auto;
+	padding : 0.625rem 0.75rem 0.75rem;
+}
+small {
+	font-size : inherit;
+}
+var {
+	border-style : solid;
+	border-width : 1px;
+	border-radius : 0.25rem;
+	display : inline-block;
+	font-family : monospace;
+	font-size : 0.9rem;
+	font-style : normal;
+	font-weight : normal;
+	line-height : 1.1;
+	padding : 0 0.25rem;
+}
+address, blockquote, details, dialog, dl, fieldset,
+figcaption, figure, form, ol, p, pre, table, ul {
+	margin : Typo.blockMargin();
+}
+
+
+/* ######################################################################### */
+/* # Colors                                                                  */
+/* ######################################################################### */
+
+code, var {
+	background-color : rgba( 0, 0, 0, 0.05 );
+	border-color : rgba( 0, 0, 0, 0.1 );
+}
+mark {
+	background-color : #ffffbd;
+}

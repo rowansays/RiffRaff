@@ -1,0 +1,335 @@
+/**
+ * WordPress block content.
+ *
+ * @since 1.0.0
+ */
+
+@use 'Font';
+@use 'Button';
+@use 'Color';
+@use 'Typography' as Typo;
+@use 'Utility';
+
+
+.wp-block-audio {}
+.wp-block-button {
+  margin: 1rem 0;
+  .wp-block-button__link {
+    @include Button.Default;
+  }
+  &.is-style-squared {
+    .wp-block-button__link {
+      border-radius : 0;
+    }
+  }
+  &.is-style-outline {
+    .wp-block-button__link {
+      @include Button.Subtle();
+    }
+  }
+}
+
+.wp-block-code {
+  border: 0;
+  overflow: auto;
+  padding: 0;
+  > code {
+    border: 1px solid #ccc;
+    display: block;
+    font-size: 0.8rem;
+    overflow: auto;
+    padding: 1rem;
+    &:focus {
+      box-shadow: 0 0 0 3px #555;
+      outline: none;
+    }
+  }
+}
+
+.wp-block-gallery {
+  ul {
+    margin: 0;
+    padding : 0;
+  }
+  .blocks-gallery-item {
+    padding: 0;
+    &:before {
+      background: none;
+    }
+  }
+  .blocks-gallery-item__caption {
+    margin: 0;
+  }
+}
+
+.wp-block-group {
+  &.has-background {
+    .wp-block-group__inner-container {
+      @include Utility.VisibleBox();
+      padding: 1rem;
+    }
+  }
+}
+
+.wp-block-image {
+  margin: 1rem 0;
+  figcaption {
+    margin-top : 0.25rem;
+    margin-bottom : 1rem;
+    color : #555d66;
+    text-align : left;
+    font-size : 1rem;
+  }
+  figure {
+    margin : 0.365rem 0 0;
+    &.alignleft {
+      margin-right : 1rem;
+    }
+    &.alignright {
+      margin-left : 1rem;
+    }
+  }
+  img {
+    display: block;
+  }
+}
+
+.wp-block-media-text {
+  .wp-block-media-text__content {
+    @include Utility.VisibleBox();
+    padding: 1rem;
+  }
+  .wp-block-media-text__media {
+    @include Utility.VisibleBox();
+    padding: 1rem;
+  }
+}
+
+.wp-block-preformatted {
+  overflow: auto;
+}
+
+.wp-block-pullquote {
+	padding: 1rem 0;
+	border-color: Color.primary('border');
+	border-style: solid;
+	border-width: 0.365rem 0;
+	position: relative;
+  > blockquote {
+    margin: 0;
+  }
+  cite {
+    color : Color.primary('copy');
+    margin-top: 0.25rem;
+  }
+  p {
+    line-height: 1.35;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  &.is-style-solid-color {
+    border-width: 0;
+    blockquote cite {
+      @include Typo.citation();
+    }
+  }
+}
+
+.wp-block-quote {
+	border : 0 solid Color.primary('border');
+	border-left-width : 0.30rem;
+	padding : 0 0 0 1rem;
+  &[style*="text-align:right"] {
+    border-right-width : 0.30rem;
+    border-left-width : 0;
+    padding : 0 1rem 0 0;
+  }
+  &.is-style-large {
+    margin: Typo.blockMargin();
+    p {
+      font-family: Font.copy();
+      font-size : 1.5rem;
+      font-style : normal;
+      font-weight : 200;
+      line-height : 1.5;
+    }
+  }
+  > p {
+    margin-bottom : 0;
+  }
+}
+
+.wp-block-verse {
+  border: none;
+  font-family: Font.headline();
+  font-size: 1.25rem;
+  text-align: center;
+  white-space: break-spaces;
+}
+
+
+img {
+	max-width : 100%;
+	height : auto;
+}
+img.alignleft {
+	float : left;
+	margin-right : 1rem;
+}
+img.alignright {
+	float : right;
+	margin-left : 1rem;
+}
+img.aligncenter {
+	display : block;
+	margin : 1rem auto;
+}
+figure.wp-caption {
+	max-width : 100%;
+	margin : 1rem 0;
+}
+.is-style-labelMakerText {
+	background-color : #333;
+	color : #fff;
+	padding: 0 0.25rem;
+}
+p.has-drop-cap:not(:focus):first-letter {
+	font-size : 2.9em;
+	font-weight : inherit;
+	line-height : 0.95;
+	margin-right : 0.20rem;
+}
+.wp-video, video.wp-video-shortcode {
+  width: 100% !important;
+}
+
+
+/*****************************************************************************/
+/*  Custom Block Styles                                                      */
+/*****************************************************************************/
+
+.is-style-greater-than {
+  @include Utility.WrapFloats();
+  list-style: none;
+  padding: 0;
+  li {
+    background: #ddd;
+    border-radius: 0.5rem;
+    display: inline-block;
+    font-size: 0; /* Inline-block whitespace hack. Also hides the word "over". */
+    margin: 0 0.5rem  0.6rem 0;
+    text-align: center;
+    &:before {
+      display: none;
+    }
+    > * {
+      display: inline-block;
+      font-size: 1rem; /* Inline-block whitespace hack. */
+      padding: 0.25rem 0.5rem 0.20rem 0.5rem;
+    }
+    > a {
+      text-decoration: none;
+      &:first-of-type {
+        background: Color.primaryAlt('copy');
+        border-radius: 0.5rem 0 0 0.5rem;
+        color: Color.primaryAlt('bg');
+      }
+      &:last-of-type {
+        background: Color.primaryAlt('bg');
+        border-radius: 0 0.5rem 0.5rem 0;
+        color: Color.primaryAlt('copy');
+      }
+    }
+    > span {
+      @include Utility.VisuallyHidden();
+      margin: 0;
+    }
+  }
+}
+
+.is-style-star-points {
+  list-style: none;
+  padding: 0 0 0 1.50rem;
+  li {
+    margin: 0.25rem 0;
+    position: relative;
+    &:before {
+      color: Color.primary('stress');
+      content: '\272A';
+      display: inline-block;
+      font-size: 1.15rem;
+      line-height: 1;
+      position: absolute;
+        top: 0.20rem;
+        left: -1.50rem;
+      text-align: center;
+      width: 1.15rem;
+      height: 1.15rem;
+    }
+    ul {
+      list-style: none;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    li:before {
+      color: Color.primary('accent');
+    }
+  }
+}
+
+.is-style-breath-hex {
+  background-color: transparent;
+  background-image: url('./image/hex-breath-260.png');
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  background-size: 230px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 280px;
+  padding: 260px 0 0;
+  text-align: center;
+  @include Utility.HidpiBackground('./image/hex-breath-520.png');
+  @media(min-width: 600px) {
+    background-image: url('./image/hex-breath-130.png');
+    background-position: 0 50%;
+    background-size: 130px;
+    display: table-cell;
+    height: 130px; /* This functions as "min-height" for table cells. */
+    margin-right: 0;
+    margin-left: 0;
+    max-width: none;
+    padding: 0 0 0 150px;
+    text-align: left;
+    vertical-align: middle;
+    @include Utility.HidpiBackground('./image/hex-breath-260.png');
+  }
+}
+
+/*****************************************************************************/
+/*  Prismatic Plugin                                                         */
+/*****************************************************************************/
+
+div.code-toolbar > div.toolbar {
+  top: 0;
+  right: 0;
+  opacity: 1;
+  .toolbar-item {
+    span {
+      background-color: Color.red('bg');
+      border-radius: 0;
+      color: Color.red('copy');
+      font-weight: bold;
+      padding: 0.5rem;
+    }
+  }
+}
+
+.wp-block-prismatic-blocks {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  code {
+    font-size: 0.7rem;
+  }
+}

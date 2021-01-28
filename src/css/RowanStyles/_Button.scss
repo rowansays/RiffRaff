@@ -1,0 +1,97 @@
+@use 'Animate';
+@use 'Color';
+@use 'Font';
+@use 'Svg';
+
+/**
+ * Remove pointer events from every direct descendant of button.
+ *
+ * @see https://css-tricks.com/slightly-careful-sub-elements-clickable-things/
+ * @since 1.0.0
+ */
+button > * {
+  pointer-events: none;
+}
+
+/**
+ * Flat Button.
+ *
+ * @param {color} $b1 Required. Resting background color.
+ * @param {color} $c1 Required. Resting text color.
+ * @param {color} $b2 Required. Active background color.
+ * @param {color} $c1 Required. Active text color.
+ */
+@mixin _ButtonFlat($b1, $c1, $b2, $c2) {
+  align-items: center;
+  background-color: $b1;
+  border: 2px solid $b1;
+  border-radius : 0.25rem;
+  color: $c1;
+  cursor: pointer;
+  display: inline-flex;
+  fill: $c1;
+  font-family: Font.headline();
+  font-size: 1rem;
+  font-weight: 500;
+  justify-content: center;
+  line-height: 1;
+  margin: 0 0.40rem 0.40rem 0;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.3rem 0.9rem 0;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: top;
+  -webkit-font-smoothing: auto;
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $b2;
+    color: $c2;
+    fill: $c2;
+  }
+}
+@mixin Default() {
+  @include _ButtonFlat(
+    Color.secondary('bg'),
+    Color.secondary('copy'),
+    Color.secondaryAlt('bg'),
+    Color.secondaryAlt('copy')
+  );
+}
+@mixin Subtle() {
+  @include _ButtonFlat(
+    Color.primary('bg'),
+    Color.primary('copy'),
+    Color.primaryAlt('bg'),
+    Color.primaryAlt('copy')
+  );
+  border-color: Color.primary('border');
+}
+@mixin Load() {
+  @include Subtle();
+  &:after {
+    background-image: url(Svg.arrowDown(Color.primary('copy')));
+    background-size: 0.5rem auto;
+    content: '';
+    display: block;
+    height: 0.5rem;
+    width: 0.5rem;
+    margin: 0 0 0.3rem 0.65rem;
+  }
+}
+@mixin Loading() {
+  @include Subtle();
+  padding-right: 0.5rem;
+  &:after {
+    background-image: url(Svg.gear(Color.primary('copy')));
+    background-size: 1.2rem auto;
+    content: '';
+    display: block;
+    height: 1.2rem;
+    width: 1.2rem;
+    margin: 0 0 0.3rem 0.35rem;
+    @include Animate.spin();
+  }
+}

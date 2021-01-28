@@ -1,0 +1,103 @@
+@use 'Utility' as Util;
+
+/**
+ * Primary color scheme.
+ *
+ *   bg ....... ffffff
+ *   border ... dddddd
+ *   copy ..... 767676 ... 4.54 ... AA
+ *   accent ... 555555 ... 7.45 ... AAA
+ *   stress ... b30000 ... 7.19 ... AAA
+ *
+ * @param {string} $key
+ * @return {color}
+ */
+@function primary($key) {
+	@return Util.getFromMap((
+		'bg': #fff,
+		'border': #ddd,
+    'copy': #767676,
+		'accent': #555,
+    'stress': #b30000,
+	), $key, "primary() - Unknown color requested: `#{$key}`.");
+}
+/**
+ * Primary, alternative color scheme.
+ *
+ *   bg ....... dddddd
+ *   border ... aaaaaa
+ *   copy ..... 555555 ... 5.75 ... AA
+ *   accent ... 616161 ... 4.55 ... AAA
+ *   stress ... 8f0000 ... 7.13 ... AAA
+ *
+ * @param {string} $key
+ * @return {color}
+ */
+@function primaryAlt($key) {
+  @return Util.getFromMap((
+    'bg': #ddd,
+    'border': #aaa,
+    'copy': #555,
+    'accent': #616161,
+    'stress': #8f0000,
+	), $key, "primaryAlt() - Unknown color requested: `#{$key}`.");
+}
+/**
+ * Secondary color scheme.
+ *
+ *   bg ....... 23282d
+ *   border ... 23282d
+ *   copy ..... ffffff ... 14.86 ... AAA
+ *   accent ... dddddd ... 10.94 ... AA
+ *   stress ... ff4d4d ...  4.54 ... AA
+ *
+ * @param {string} $key
+ * @return {color}
+ */
+@function secondary($key) {
+  @return Util.getFromMap((
+    'bg': #23282d,
+    'border': #23282d,
+    'copy': #fff,
+    'accent': #ddd,
+    'stress': #ff4d4d,
+	), $key, "secondary() - Unknown color requested: `#{$key}`.");
+}
+/**
+ * Secondary alternative color scheme.
+ *
+ *   bg ....... 000000
+ *   border ... 000000
+ *   copy ..... dddddd ... 15.46 ... AAA
+ *   accent ... ffffff ... 21:10 ... AAA
+ *
+ * @param {string} $key
+ * @return {color}
+ */
+@function secondaryAlt($key) {
+  @return Util.getFromMap((
+    'bg': #000,
+    'border': #000,
+    'copy': #ddd,
+    'accent': #fff,
+	), $key, "secondaryAlt() - Unknown color requested: `#{$key}`.");
+}
+/**
+ * Red boxen.
+ *
+ *   bg ....... ff4d4d
+ *   border ... ff0000
+ *   copy ..... 23282d ... 4.54 ... AA
+ *   accent ... 000000 ... 6.42 ... AA
+ *
+ * @param {string} $key
+ * @return {color}
+ */
+@function red($key) {
+  @return Util.getFromMap((
+    'bg': #ff4d4d,
+    'border': #f00,
+    'copy': #23282d,
+    'accent': #000,
+  ), $key, "red() - Unknown color requested: `#{$key}`.");
+}

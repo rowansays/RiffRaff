@@ -1,0 +1,114 @@
+/**
+ * Get an item from a map.
+ *
+ * @param {map} $map The map in which the key exists.
+ * @param {string} $key Name of the rey to return.
+ * @param {string} $error An error message only used when the requested key
+ *     does not exist in the map.
+ *
+ * @return {mixed}
+ */
+@function getFromMap($map, $key, $error) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+	}
+	@warn $error;
+	@return null;
+}
+/**
+ * Encode hex color
+ *
+ * @param {string|color} $aught The value to encode.
+ * @return {string} The requested color in hexidecimal natation: #RRGGBB.
+ */
+@function encodeHexColor($aught) {
+  @if type-of($aught) == 'color' {
+    /* Convert color to #AARRGGBB notation. */
+    $ieHex: ie-hex-str($aught);
+    /* Remove "#AA" from the left side of $ieHex. */
+    $trimmedHex: str-slice($ieHex, 4);
+    /* Remove quotes from string and append encoded hash. */
+    @return '%23' + unquote("#{$trimmedHex}");
+  } @else {
+    @error '' +
+      'A value with type "color" must be passed to encodeHexColor(). ' +
+      'The value "' + $aught + '" was passed which has a type of ' +
+      '"' + type-of($aught) + '".';
+  }
+}
+/**
+ * Visible box.
+ *
+ * A block-level element that can be seen either by having a visible
+ * background color or border. Elements like this should be able to
+ * define their own padding without having to account for vertical
+ * whitespace that may be introduced by their direct descendants.
+ * The styles here remove such vertical whitespace.
+ *
+ * @since v1.0.0
+ */
+@mixin VisibleBox() {
+  > :first-child {
+    margin-top: 0;
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+@mixin WrapFloats() {
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
+@mixin VisuallyHidden() {
+  border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+@mixin HidpiBackground($url) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.3),
+  only screen and (min--moz-device-pixel-ratio: 1.3),
+  only screen and (-o-min-device-pixel-ratio: 2.6/2),
+  only screen and (min-device-pixel-ratio: 1.3),
+  only screen and (min-resolution: 124.8dpi),
+  only screen and (min-resolution: 1.3dppx) {
+    background-image: url($url);
+  }
+}
+/**
+ * Utility Classes.
+ */
+
+.BlockLevelLink:hover {
+	cursor: pointer;
+}
+.Breakable {
+	overflow-wrap: break-word;
+}
+.ScreenReader,
+.ScreenReaderOnly,
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+.Unbreakable {
+  overflow-wrap: normal;
+  white-space: nowrap;
+}
