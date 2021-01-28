@@ -70,3 +70,12 @@ pre,
 .wp-caption img[class*="wp-image-"] {
   display: block;
 }
+
+#Sidebar {
+  background: pink;
+  position: fixed;
+  @media (min-width: 450px) {
+    background: lightblue;
+    color: green;
+  }
+}

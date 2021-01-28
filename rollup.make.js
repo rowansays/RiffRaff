@@ -22,18 +22,21 @@ export default [
       nodeResolve(),
       babel({ babelHelpers: 'bundled' }),
       commonjs(),
+      postcss({
+        extract: path.resolve(__dirname, 'make/style.css')
+      }),
       serve({
         open: true,
         openPage: '/',
         host: 'localhost',
         port: 3003,
-        contentBase: ['./make'],
+        contentBase: ['make'],
       }),
       livereload({
-        watch: ['./make']
-      }),
-      postcss({
-        extract: path.resolve('make/style.css')
+        watch: [
+          path.resolve(__dirname, 'src/'),
+        ],
+        exts: [ 'html', 'js', 'scss', 'css', 'twig' ]
       })
     ]
   }
