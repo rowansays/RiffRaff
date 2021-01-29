@@ -1,9 +1,5 @@
 {% if packages|default([]) is not empty %}
-  <h3 id="packages">
-    Packages
-    <a href="#packages" class="headerlink"></a>
-  </h3>
-
+  <h3 id="packages">Packages <a href="#packages" class="headerlink"></a></h3>
   <dl class="Toc">
     {% for package in packages %}
       <dt class="Toc__entry -package">{{ package|route('class:short') }}</dt>
@@ -13,11 +9,7 @@
 
 
 {% if namespaces|default([]) is not empty %}
-  <h3 id="namespaces">
-    Namespaces
-    <a href="#namespaces" class="headerlink"></a>
-  </h3>
-
+  <h3 id="namespaces">Namespaces <a href="#namespaces" class="headerlink"></a></h3>
   <dl class="Toc">
     {% for namespace in namespaces %}
       <dt class="Toc__entry -namespace">{{ namespace|route('class:short') }}</dt>
@@ -27,10 +19,7 @@
 
 
 {% if node.interfaces is not empty %}
-  <h3 id="interfaces">
-    Interfaces
-    <a href="#interfaces" class="headerlink"></a>
-  </h3>
+  <h3 id="interfaces">Interfaces <a href="#interfaces" class="headerlink"></a></h3>
   <dl class="Toc">
     {% for interface in node.interfaces %}
       <dt class="Toc__entry -interface">{{ interface|route('class:short') }}</dt>
@@ -41,11 +30,7 @@
 
 
 {% if node.classes is not empty %}
-  <h3 id="classes">
-    Classes
-    <a href="#classes" class="headerlink"></a>
-  </h3>
-
+  <h3 id="classes">Classes <a href="#classes" class="headerlink"></a></h3>
   <dl class="Toc">
     {% for class in node.classes %}
       <dt class="Toc__entry -class">{{ class|route('class:short') }}</dt>
@@ -56,11 +41,7 @@
 
 
 {% if node.traits is not empty %}
-  <h3 id="traits">
-    Traits
-    <a href="#traits" class="headerlink"></a>
-  </h3>
-
+  <h3 id="traits">Traits <a href="#traits" class="headerlink"></a></h3>
   <dl class="Toc">
     {% for trait in node.traits %}
       <dt class="Toc__entry -trait">{{ trait|route('class:short') }}</dt>
@@ -74,10 +55,7 @@
 {% set methods = methods(node) %}
 
 {% if constants is not empty or node.functions is not empty or methods is not empty or properties is not empty %}
-  <h3 id="toc">
-    Table of Contents
-    <a href="#toc" class="headerlink"></a>
-  </h3>
+  <h3 id="toc">Table of Contents <a href="#toc" class="headerlink"></a></h3>
 
   <dl class="Toc">
     {% for constant in constants(node)|sortByVisibility %}
