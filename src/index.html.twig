@@ -7,7 +7,7 @@
 
     {{
     include(
-        'components/table-of-contents.html.twig',
+        'components/Toc.html.twig',
         {
             'node': project.namespace,
             'namespaces': usesNamespaces or not usesPackages ? node.children : [],

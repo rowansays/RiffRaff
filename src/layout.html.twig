@@ -2,19 +2,22 @@
 <!--HI FROM ROWAN'S TEMPLATE :) -->
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>{% block title %}{{ project.name }}{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{ renderBaseUrlHeader() }}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ project.name }}{% endblock %}</title>
+  {{ renderBaseUrlHeader() }}
 
-    {% block stylesheets %}
-        <link rel="stylesheet" href="style.css">
-    {% endblock %}
-    {% block javascripts %}
-        <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
-        <script src="js/search.js"></script>
-        <script defer src="js/searchIndex.js"></script>
-    {% endblock %}
+  {% block stylesheets %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  {% endblock %}
+
+  {% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+    <script src="js/search.js"></script>
+    <script defer src="js/searchIndex.js"></script>
+  {% endblock %}
 </head>
 <body id="top">
   <header id="Nameplate">

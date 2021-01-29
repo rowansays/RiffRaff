@@ -1,11 +1,8 @@
 {% set properties = properties(node)|sortByVisibility %}
 
 {% if properties is not empty %}
-    <section class="phpdocumentor-properties">
-        <h3 class="phpdocumentor-elements__header" id="properties">
-            Properties
-            <a href="{{ link(node) }}#properties" class="headerlink"></a>
-        </h3>
+    <section class="MemberList PropertyList">
+        <h3 class="MemberListName" id="properties">Properties <a href="{{ link(node) }}#properties" class="headerlink"></a></h3>
         {% for property in properties %}
             {% include 'components/property.html.twig' %}
         {% endfor %}

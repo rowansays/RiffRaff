@@ -2,6 +2,12 @@
  * Structure.
  *
  * Styles for the main layout elements.
+ *
+ * What is an element?
+ *  - It's too general'
+ *
+ *
+ *
  */
 
 @use 'Animate';
@@ -236,355 +242,90 @@ body {
 #Content {
   @include Utility.VisibleBox();
   margin-left: 300px;
+  padding-right: 1rem;
 }
 
-/* ######################################################################### */
-/* # HTTP Error Screens                                                      */
-/* ######################################################################### */
 
-body.error404 {
-  text-align:center;
-  > main {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    > div {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-  h1 {
-    font-size: 15vw;
-    line-height: 0.7;
-    margin: 0;
-  }
-  p {
-    margin: 0;
-    white-space: pre;
-  }
-}
-#Signature404 .Bling {
-  font-weight: bold;
-}
-
-/* ######################################################################### */
-/* # Text Feeds                                                              */
-/* ######################################################################### */
-
-.TextFeed {
-  margin-top: 0;
-  margin-bottom: 0;
-  &Head {
-    display: flex;
-    align-items: baseline;
-    .Headline {
-      align-self: flex-start;
-      font-size: 1.5rem;
-      flex-grow: 1;
-      margin: 0;
-    }
-    .Status {
-      align-self: flex-end;
-      font-size: 0.8rem;
-      margin: 0rem;
-      padding-bottom: 0.25rem;
-      text-align: right;
-    }
-    .Status:focus {
-      outline: none;
-    }
-  }
-  &Body {
-    margin: 0 0 2rem;
-    padding: 0;
-    .SearchResult {
-      .Title {
-        font-family: Font.copy();
-        font-size: 1.2rem;
-        font-weight: 700;
-        line-height: 1.5;
-        margin-bottom: 0;
-        a {
-          text-decoration: none;
-        }
-      }
-      .Excerpt {
-        @include Utility.VisibleBox();
-      }
-    }
-  }
-  &Article {
-    /* Structure. */
-    display: grid;
-    grid-gap: 0;
-    grid-template-columns: repeat(36, 1fr);
-    &Date {
-      grid-column: 1/12;
-      grid-row: 1/1;
-      @media (min-width: 400px) {
-        grid-column: 1/9;
-      }
-      @media (min-width: 550px) {
-        grid-column: 1/8;
-      }
-    }
-    &Icon {
-      align-self: center;
-      justify-self: center;
-      grid-column: 1/3;
-      grid-row: 2/2;
-      @media (min-width: 400px) {
-        display: flex;
-        grid-column: 9/11;
-        grid-row: 1/1;
-      }
-      @media (min-width: 550px) {
-        grid-column: 8/10;
-      }
-    }
-    &Title {
-      grid-column: 3/27;
-      grid-row: 2/3;
-      @media (min-width: 400px) {
-        grid-column: 11/30;
-        grid-row: 1/2;
-      }
-      @media (min-width: 550px) {
-        grid-column: 10/31;
-      }
-    }
-    &Category {
-      grid-column: 27/37;
-      grid-row: 1/3;
-      @media (min-width: 400px) {
-        grid-column: 30/37;
-        grid-row: 1/2;
-      }
-      @media (min-width: 550px) {
-        grid-column: 31/37;
-      }
-    }
-
-    /* Style */
-    border-bottom: 0.125rem solid Color.primary('border');
-    color: Color.primary('copy');
-    padding: 0.25rem 0;
-    a {
-      color: Color.primary('copy');
-      font-weight: normal;
-      text-decoration: none;
-    }
-    &:first-child {
-      border-top: 0.125rem solid Color.primary('border');
-    }
-    &.Focused,
-    &:hover {
-      background-color: #e8f9fc; /* TODO */
-      cursor: pointer;
-      a {
-        outline: none;
-      }
-    }
-    &Date {
-      display: block;
-      a {
-        text-decoration: none;
-      }
-    }
-    &Icon {
-      line-height: 1;
-      svg {
-        fill: Color.primary('stress');
-        margin: 0 0.1rem 0 0;
-        height: 0.95rem;
-        width: 0.95rem;
-      }
-    }
-    &Title {
-      font-size: 1rem;
-      word-wrap: break-word;
-      word-break: break-word;
-      a {
-        display: block;
-      }
-      .Bling {
-        font-weight: bold;
-      }
-    }
-    &Category {
-      align-self: top;
-      text-align: right;
-      @media (min-width: 400px) {
-        font-size: 0.8rem;
-      }
-      a {
-        background-color: Color.primary('stress');
-        color: Color.primary('bg');
-        display: inline-block;
-        padding: 0 0.30rem;
-      }
-    }
-  }
-  &Foot {
-    &Navigation {
-      display: flex;
-      justify-content: space-between;
-      list-style: none;
-      margin: 1rem 0;
-      padding: 0;
-      li {
-        margin: 0;
-        padding: 0;
-      }
-    }
-  }
-}
-
-/* ######################################################################### */
-/* # Thumbnail Feeds                                                         */
-/* ######################################################################### */
-
-.ThumbFeed {
-  margin-top: 0;
-  margin-bottom: 0;
-  &Head {
-    display: flex;
-    align-items: baseline;
-    .Headline {
-      align-self: flex-start;
-      font-size: 1.5rem;
-      flex-grow: 1;
-      margin: 0;
-    }
-    .Status {
-      align-self: flex-end;
-      font-size: 0.8rem;
-      margin: 0rem;
-      padding-bottom: 0.25rem;
-      text-align: right;
-    }
-    .Status:focus {
-      outline: none;
-    }
-  }
-  &Body {
-    border-top: 2px solid Color.primary('border');
-    border-bottom: 2px solid Color.primary('border');
-    list-style: none;
-    margin: 0 0 2rem;
-    padding: 2% 0 0 0;
-    @include Utility.WrapFloats();
-  }
-  &Article {
-    border: none;
-    img {
-      display: block;
-      line-height: 1;
-    }
-    margin: 2% 0;
-    &:first-child {
-      margin-top: 0;
-    }
-    @media (min-width: 330px) { /* 2 Column Grid. */
-      float: left;
-      width: 48%;
-      margin: 0 2% 2% 0;
-      width: 49%;
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
-    }
-    @media (min-width: 600px) { /* 3 Column Grid. */
-      width: 32%;
-      &:nth-child(2n) {
-        margin-right: 2%;
-      }
-      &:nth-child(3n) {
-        margin-right: 0;
-      }
-    }
-    &Thumbnail {
-      cursor: pointer;
-    }
-    &Category,
-    &Date,
-    &Icon,
-    &Title {
-      @include Utility.VisuallyHidden;
-    }
-  }
-  &Foot {
-    &Navigation {
-      display: flex;
-      justify-content: space-between;
-      list-style: none;
-      margin: 1rem 0;
-      padding: 0;
-      li {
-        margin: 0;
-        padding: 0;
-      }
-    }
-  }
-}
-
-/* ######################################################################### */
-/* # Single Articles                                                         */
-/* ######################################################################### */
-
-#Subheading {
-  font-family: Font.headline();
-  font-size: 1rem;
-  margin: 0;
-  .Category, .Posted {
-    display: inline-block;
-    padding: 0.25rem 0.25rem 0;
-    line-height: 1;
-  }
-  .Category {
-    background-color: Color.primary('stress');
-    color: Color.primary('bg');
-  }
-  .Posted {
-    background-color: Color.secondary('bg');
-    color: Color.secondary('copy');
-  }
-  a {
+.Toc {
+  .MemberName {
+    font-weight: bold;
     text-decoration: none;
   }
 }
 
-body.single-post {
-  .Poem {
-    display: flex;
-    flex-direction: column;
-    #Headline {
-      margin-bottom: 1rem;
-      text-align: center;
+
+
+/*
+.Element {
+  border: 1px solid red;
+  margin: 1rem 0;
+}
+*/
+
+
+.Toc {
+  border-collapse: collapse;
+  caption {
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: 0.90rem;
+  }
+  a {
+    text-decoration: none;
+  }
+  .SectionName,
+  .ItemName,
+  .ItemDesc {
+    border-top: 0.125rem solid #ddd;
+    padding: 0.25rem 0.75rem 0.25rem 0;
+    text-align: left;
+    vertical-align: top;
+  }
+  .SectionName {
+    font-weight: bold;
+    padding-right: 1rem;
+  }
+  .ItemName {
+  }
+  .ItemDesc {
+  }
+}
+
+.Glossary {
+  .GlossName {
+    font-weight: bold;
+    margin-top: 1.25rem;
+    a {
+      text-decoration: none;
     }
-    #Subheading {
-      order: 99998;
-      text-align: center;
-      .Posted {
-        background: transparent;
-        color: inherit;
-      }
+    .GlossNameTerm {
+      color: Color.primary('accent');
     }
-    .wp-block-verse {
-      margin-top: 0;
-    }
-    .TermMenu {
-      margin-top: 3rem;
-      margin-bottom: 3rem;
-      order: 99999;
-      text-align: center;
+    .GlossNameType,
+    .GlossNameType a {
+      color: #949494;
+      color: Color.primary('stress');
+      font-family: monospace;
+      font-size : 0.9rem;
     }
   }
 }
+
+.MemberList {
+  .MemberListName {
+
+  }
+  .Member {
+    border: 1px solid blue;
+    margin: 1rem 0;
+  }
+}
+
+dd {
+  margin-left:0;
+}
+
+
 
 /* ######################################################################### */
 /* # Copy                                                                    */
@@ -622,78 +363,6 @@ main {
         position: absolute;
         top: 0;
         left: -1.7rem;
-      }
-    }
-  }
-}
-
-.labelMakerText {
-	background-color: Color.secondary('bg');
-	color: Color.secondary('copy');
-	padding: 0 0.25rem;
-}
-
-/* ######################################################################### */
-/* # Headlines                                                               */
-/* ######################################################################### */
-
-#Headline {
-  position: relative;
-}
-#TermShortname {
-  background-color: Color.primary('stress');
-  color: Color.primary('bg');
-  display: inline-block;
-  font-family: Font.copy();
-  font-size: 0.8rem;
-  line-height: 1.5;
-  padding: 0 0.3rem;
-  position: relative;
-    top: -1rem;
-}
-
-/* ######################################################################### */
-/* # Term Menu                                                               */
-/* ######################################################################### */
-
-.TermMenu {
-  list-style: none;
-  &Heading {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-  &List {
-    margin: 0.75rem 0 0;
-    padding: 0;
-    li {
-      display : inline;
-      margin: 0;
-      padding: 0;
-      a {
-        @include Button.Subtle();
-      }
-    }
-  }
-}
-
-
-
-/* ######################################################################### */
-/* # Homepage                                                                */
-/* ######################################################################### */
-
-body.home {
-  h1, h2, h3 {
-    font-size: 1.5rem;
-  }
-  #Welcome {
-    margin-bottom: 1rem;
-    #Headline {
-      margin-bottom: 0;
-      text-align: center;
-      @media(min-width: 600px) {
-        text-align: left;
-        text-indent: 150px;
       }
     }
   }

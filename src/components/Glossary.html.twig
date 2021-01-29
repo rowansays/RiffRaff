@@ -1,0 +1,22 @@
+<div class="Glossary {{name}}">
+  <h3 id="{{name}}">{{name}} <a href="#{{name}}" class="headerlink"></a></h3>
+  <dl class="Glosses {{items|length}}">
+    {% for item in items %}
+      <dt class="GlossName {{ item.visibility }}">
+        <span class="GlossNameTerm">
+          <a href="{{ link(item) }}">{{ item.name }}{{ name == 'Methods' or name == 'Functions' ? '()' }}</a>
+        </span>
+        {% if name == 'Constants' %}
+          <span class="GlossNameType">= {{ item.value }}</span>
+        {% elseif name == 'Properties' %}
+          <span class="GlossNameType">{{ item.type ? item.type|route('class:short')|join('|')|raw : 'mixed' }}
+        {% elseif name == 'Methods' or name == 'Functions' %}
+          <span class="GlossNameType">{{ item.response.type|route('class:short')|join('|')|raw }}</span>
+        {% endif %}
+      </dt>
+      {% if item.summary is not empty %}
+        <dd class="GlossDesc {{ item.visibility }}">{{ item.summary }}</dd>
+      {% endif %}
+    {% endfor %}
+  </dl>
+</div>

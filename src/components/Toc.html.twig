@@ -14,38 +14,38 @@
     </tr>
   </thead>
   {% if packages|default([]) is not empty %}
-    {{ include('components/TocBody.html.twig', {'name': 'Packages', 'items': packages}) }}
+    {{ include('components/TocBody.html.twig', {'name': 'Package', 'items': packages}) }}
   {% endif %}
 
   {% if namespaces|default([]) is not empty %}
-    {{ include('components/TocBody.html.twig', {'name': 'Namespaces', 'items': namespaces}) }}
+    {{ include('components/TocBody.html.twig', {'name': 'Namespace', 'items': namespaces}) }}
   {% endif %}
 
   {% if node.interfaces is not empty %}
-    {{ include('components/TocBody.html.twig', {'name': 'Interfaces', 'items': node.interfaces}) }}
+    {{ include('components/TocBody.html.twig', {'name': 'Interface', 'items': node.interfaces}) }}
   {% endif %}
 
   {% if node.classes is not empty %}
-    {{ include('components/TocBody.html.twig', {'name': 'Classes', 'items': node.classes}) }}
+    {{ include('components/TocBody.html.twig', {'name': 'Class', 'items': node.classes}) }}
   {% endif %}
 
   {% if node.traits is not empty %}
-    {{ include('components/TocBody.html.twig', {'name': 'Traits', 'items': node.traits}) }}
+    {{ include('components/TocBody.html.twig', {'name': 'Trait', 'items': node.traits}) }}
   {% endif %}
 
   {% if constants is not empty %}
-    {{ include('components/TocBody.html.twig', {'name': 'Constants', 'items': constants}) }}
+    {{ include('components/TocBody.html.twig', {'name': 'Constant', 'items': constants}) }}
   {% endif %}
 
   {% if properties is not empty %}
-    {{ include('components/TocBody.html.twig', {'name': 'Properties', 'items': properties}) }}
+    {{ include('components/TocBody.html.twig', {'name': 'Property', 'items': properties}) }}
   {% endif %}
 
   {% if methods is not empty %}
-    {{ include('components/TocBody.html.twig', {'name': 'Methods', 'items': methods}) }}
+    {{ include('components/TocBody.html.twig', {'name': 'Method', 'items': methods}) }}
   {% endif %}
 
   {% if functions is not empty %}
-    {{ include('components/TocBody.html.twig', {'name': 'Functions', 'items': functions}) }}
+    {{ include('components/TocBody.html.twig', {'name': 'Function', 'items': functions}) }}
   {% endif %}
 </table>

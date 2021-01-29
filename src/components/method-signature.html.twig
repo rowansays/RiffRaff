@@ -1,37 +1,29 @@
-<code class="phpdocumentor-code phpdocumentor-signature {% if node.deprecated %}-deprecated{% endif %}">
-  <span class="phpdocumentor-signature__visibility">{{ node.visibility }}</span>
-  {% if node.abstract %}
-    <span class="phpdocumentor-signature__abstract">abstract</span>
-  {% endif %}
-
-  {% if node.final %}
-    <span class="phpdocumentor-signature__final">final</span>
-  {% endif %}
-
-  {% if node.static %}
-    <span class="phpdocumentor-signature__static">static</span>
-  {% endif %}
-
+<!--Method Signature-->
+<code class="Signature language-php {% if node.deprecated %}Deprecated{% endif %}">
+  <span>{{ node.visibility }}</span>
+  {% if node.abstract %}<span>abstract</span>{% endif %}
+  {% if node.final %}<span>final</span>{% endif %}
+  {% if node.static %}<span>static</span>{% endif %}
   {% apply spaceless %}
-    <span class="phpdocumentor-signature__name">{{ node.name }}</span>
+    <span>{{ node.name }}</span>
     <span>(</span>
     {% for argument in node.arguments %}
-      <span class="phpdocumentor-signature__argument">
+      <span>
         {% if argument.default %}<span>[</span>{% endif %}
         {% if not loop.first %}<span>, </span>{% endif %}
-        <span class="phpdocumentor-signature__argument__return-type">{{ argument.type|route('class:short')|join('|')|raw }}&nbsp;</span>
-        {% if argument.isVariadic %}<span class="phpdocumentor-signature__argument__variadic-operator">...</span>{% endif %}
-        {%- if argument.byReference -%}<span class="phpdocumentor-signature__argument__reference-operator">&amp;</span>{%- endif -%}
-        <span class="phpdocumentor-signature__argument__name">${{ argument.name }}</span>
+        <span>{{ argument.type|route('class:short')|join('|')|raw }}&nbsp;</span>
+        {% if argument.isVariadic %}<span>...</span>{% endif %}
+        {%- if argument.byReference -%}<span>&amp;</span>{%- endif -%}
+        <span>${{ argument.name }}</span>
         {% if argument.default %}
           <span> = </span>
-          <span class="phpdocumentor-signature__argument__default-value">{{ argument.default }}</span>
+          <span>{{ argument.default }}</span>
           <span> ]</span>
         {% endif %}
       </span>
     {% endfor %}
     <span>)</span>
     <span> : </span>
-    <span class="phpdocumentor-signature__response_type">{{ node.response.type|route('class:short')|join('|')|raw }}</span>
+    <span>{{ node.response.type|route('class:short')|join('|')|raw }}</span>
   {% endapply %}
 </code>

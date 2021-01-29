@@ -1,0 +1,22 @@
+<tbody>
+  <tr>
+    {% for item in items %}
+      {% if loop.index == 1 %}
+        <tr class='Definition'>
+          <th class='SectionName' rowspan={{ items|length }}>{{ name }}</th>
+          <td class='ItemName'>
+            <a href="{{ link(item) }}">{{ item.name }}{{ name == 'Method' or name == 'Function' ? '()' }}</a>
+          </td>
+          <td class='ItemDesc'>{{ item.summary }}</td>
+        </tr>
+      {% else %}
+        <tr class='Definition'>
+          <td class='ItemName'>
+            <a href="{{ link(item) }}">{{ item.name }}{{ name == 'Method' or name == 'Function' ? '()' }}</a>
+          </td>
+          <td class='ItemDesc'>{{ item.summary }}</td>
+        </tr>
+      {% endif %}
+    {% endfor %}
+  </tr>
+</tbody>

@@ -1,13 +1,4 @@
-<article
-        class="phpdocumentor-element
-            -method
-            -{{ method.visibility }}
-            {% if method.deprecated %}-deprecated{% endif %}
-            {% if method.abstract %}-abstract{% endif %}
-            {% if method.static %}-static{% endif %}
-            {% if method.final %}-final{% endif %}
-        "
->
+<article class="Member Method -{{ method.visibility }} {% if method.deprecated %}-deprecated{% endif %} {% if method.abstract %}-abstract{% endif %} {% if method.static %}-static{% endif %} {% if method.final %}-final{% endif %}">
     <h4 class="phpdocumentor-element__name" id="method_{{ method.name }}">
         {{ method.name }}()
         <a href="{{ link(method) }}" class="headerlink"></a>

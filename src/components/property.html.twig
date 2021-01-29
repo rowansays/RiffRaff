@@ -1,15 +1,5 @@
-<article
-        class="
-            phpdocumentor-element
-            -property
-            -{{ property.visibility }}
-            {% if property.static %}-static{% endif %}
-            {% if property.deprecated %}-deprecated{% endif %}
-            {% if property.writeOnly %}-write-only{% endif %}
-            {% if property.readOnly %}-read-only{% endif %}
-        "
->
-    <h4 class="phpdocumentor-element__name" id="property_{{ property.name }}">
+<article class="Member Property -{{ property.visibility }} {% if property.static %}-static{% endif %} {% if property.deprecated %}-deprecated{% endif %} {% if property.writeOnly %}-write-only{% endif %} {% if property.readOnly %}-read-only{% endif %}">
+    <h4 class="Name" id="property_{{ property.name }}">
         ${{ property.name }}
         <a href="{{ link(property) }}" class="headerlink"></a>
         <span class="phpdocumentor-element__modifiers">
@@ -29,5 +19,5 @@
       <div class="Description">{{ property.description|description|markdown }}</div>
     {% endif %}
 
-    {{ include ('components/tags.html.twig', {'node': property}) }}
+{{ include ('components/tags.html.twig', {'node': property}) }}
 </article>
