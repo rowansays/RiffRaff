@@ -25,8 +25,8 @@
                         <a class="phpdocumentor-tag-link" href="{{ tag.link }}">{% if tag.description is not empty %} {{ tag.description | description | markdown }} {% else %} {{ tag.link }} {%  endif %}</a>
                     {% endif %}
 
-                    {% if not tag.link %}
-                         {{ include('components/description.html.twig', {'node': tag}) }}
+                    {% if not tag.link and tag.description %}
+                      <div class="Description">{{ tag.description|description|markdown }}</div>
                     {% endif %}
                 </dd>
             {% endfor %}

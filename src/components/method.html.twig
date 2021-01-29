@@ -19,7 +19,11 @@
     {% endif %}
 
     {{ include('components/method-signature.html.twig', {'node': method}) }}
-    {{ include('components/description.html.twig', {'node': method}) }}
+
+    {% if method.description %}
+      <div class="Description">{{ method.description|description|markdown }}</div>
+    {% endif %}
+
     {{ include('components/method-arguments.html.twig', {'node': method}) }}
     {{ include('components/tags.html.twig', {'node': method }) }}
     {{ include('components/method-response.html.twig', {'node': method}) }}

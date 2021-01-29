@@ -8,7 +8,9 @@
                 {% if argument.default %} = <span class="phpdocumentor-signature__argument__default-value">{{ argument.default }}</span>{% endif %}
             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                {{ include('components/description.html.twig', {'node': argument}) }}
+              {% if argument.description %}
+                <div class="Description">{{ argument.description|description|markdown }}</div>
+              {% endif %}
             </dd>
         {% endfor %}
     </dl>
