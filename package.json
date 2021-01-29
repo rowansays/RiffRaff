@@ -34,7 +34,19 @@
     "webpack-dev-server": "^3.11.2",
     "webpack-manifest-plugin": "^3.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "babel-plugin-prismjs": "^2.0.1",
+    "prismjs": "^1.23.0"
+  },
+  "babel": {
+    "plugins": [
+      ["prismjs", {
+          "languages": ["php"],
+          "plugins": ["line-numbers"],
+          "css": true
+      }]
+    ]
+  },
   "browserslist": [
     "last 2 versions",
     "Safari >= 10",

@@ -23,7 +23,7 @@ module.exports = {
     rules: [
       shared.esLoader,
       {
-        test: /\.scss$/,
+        test: /\.(s)?css$/,
         use: [
           'style-loader',
           'css-loader',

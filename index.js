@@ -1,5 +1,10 @@
+import Prism from 'prismjs';
+Prism.highlightAll();
+
 // Styles
 import './src/index.scss'
+
+
 
 console.log('HELLO THERE');
 
