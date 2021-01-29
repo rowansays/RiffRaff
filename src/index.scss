@@ -5,6 +5,8 @@
 @use './css/RowanStyles/_Structure.scss';
 @use './css/RowanStyles/_Blocks.scss';
 
+@use './css/partials/headings.css';
+
 html {
   box-sizing: border-box;
   overflow-y: scroll;
