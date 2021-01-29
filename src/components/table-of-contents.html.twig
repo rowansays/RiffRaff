@@ -4,9 +4,9 @@
     <a href="#packages" class="headerlink"><i class="fas fa-link"></i></a>
 </h3>
 
-<dl class="phpdocumentor-table-of-contents">
+<dl class="Toc">
     {% for package in packages %}
-        <dt class="phpdocumentor-table-of-contents__entry -package">{{ package|route('class:short') }}</dt>
+        <dt class="Toc__entry -package">{{ package|route('class:short') }}</dt>
     {% endfor %}
 </dl>
 {% endif %}
@@ -17,9 +17,9 @@
     <a href="#namespaces" class="headerlink"><i class="fas fa-link"></i></a>
 </h3>
 
-<dl class="phpdocumentor-table-of-contents">
+<dl class="Toc">
     {% for namespace in namespaces %}
-        <dt class="phpdocumentor-table-of-contents__entry -namespace">{{ namespace|route('class:short') }}</dt>
+        <dt class="Toc__entry -namespace">{{ namespace|route('class:short') }}</dt>
     {% endfor %}
 </dl>
 {% endif %}
@@ -30,9 +30,9 @@
     Interfaces
     <a href="#interfaces" class="headerlink"><i class="fas fa-link"></i></a>
   </h3>
-  <dl class="phpdocumentor-table-of-contents">
+  <dl class="Toc">
     {% for interface in node.interfaces %}
-      <dt class="phpdocumentor-table-of-contents__entry -interface">{{ interface|route('class:short') }}</dt>
+      <dt class="Toc__entry -interface">{{ interface|route('class:short') }}</dt>
       <dd>{{ interface.summary }}</dd>
     {% endfor %}
   </dl>
@@ -44,9 +44,9 @@
     <a href="#classes" class="headerlink"><i class="fas fa-link"></i></a>
   </h3>
 
-  <dl class="phpdocumentor-table-of-contents">
+  <dl class="Toc">
     {% for class in node.classes %}
-      <dt class="phpdocumentor-table-of-contents__entry -class">{{ class|route('class:short') }}</dt>
+      <dt class="Toc__entry -class">{{ class|route('class:short') }}</dt>
       <dd>{{ class.summary }}</dd>
     {% endfor %}
   </dl>
@@ -58,9 +58,9 @@
     <a href="#traits" class="headerlink"><i class="fas fa-link"></i></a>
   </h3>
 
-  <dl class="phpdocumentor-table-of-contents">
+  <dl class="Toc">
     {% for trait in node.traits %}
-      <dt class="phpdocumentor-table-of-contents__entry -trait">{{ trait|route('class:short') }}</dt>
+      <dt class="Toc__entry -trait">{{ trait|route('class:short') }}</dt>
       <dd>{{ trait.summary }}</dd>
     {% endfor %}
   </dl>
@@ -77,7 +77,7 @@
     <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
 </h3>
 
-<dl class="phpdocumentor-table-of-contents">
+<dl class="Toc">
     {% for constant in constants(node)|sortByVisibility %}
         {{ include('components/table-of-contents-entry.html.twig', {'type': 'constant', 'node': constant}) }}
     {% endfor %}
