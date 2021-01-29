@@ -176,9 +176,6 @@ body {
       }
     }
   }
-  > main {
-    @extend %landmark;
-  }
   > section {
     @extend %landmark;
   }
@@ -217,6 +214,29 @@ body {
   }
 }
 
+#Sidebar {
+  background: pink;
+  position: fixed;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    ul {
+      padding-left: 1rem;
+    }
+  }
+  p {
+    margin: 0;
+  }
+  @media (min-width: 450px) {
+    background: lightblue;
+    color: Color.primary('stress');
+  }
+}
+#Content {
+  @include Utility.VisibleBox();
+  margin-left: 300px;
+}
 
 /* ######################################################################### */
 /* # HTTP Error Screens                                                      */

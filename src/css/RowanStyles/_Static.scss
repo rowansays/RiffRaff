@@ -31,6 +31,10 @@ html {
 *, *:before, *:after {
 	box-sizing : inherit;
 }
+abbr[title] {
+  border-bottom: none;
+  text-decoration: 1px dotted Color.primary('accent');
+}
 b {
 	font-weight : 500;
 }

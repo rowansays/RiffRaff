@@ -8,7 +8,7 @@
 <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">Menu</label>
 
-<aside id="Sidebar">
+<nav id="Sidebar">
   {% set menu = menu() %}
   {% if menu %}
     <h2 class="phpdocumentor-sidebar__category-header"><a href="{{ menu.path }}">{{ menu.label }}</a></h2>
@@ -83,4 +83,4 @@
     </li>
   </ul>
 
-</aside>
+</nav>
