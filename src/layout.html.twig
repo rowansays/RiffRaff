@@ -17,11 +17,29 @@
     {% endblock %}
 </head>
 <body id="top">
-    {% include 'components/header.html.twig' %}
-    {% include 'components/sidebar.html.twig' %}
-    <main id="Content">
-      {% block content %}{% endblock %}
-      {% include 'components/search-results.html.twig' %}
-    </main>
+  <header id="Nameplate">
+    <div>
+      <div class="Heading">
+        <h1 id="SiteName" class="SiteName">
+          <a href="{{ path('/') }}">Rowan says<span class="Bling">…</span></a>
+        </h1>
+        <p id="Tagline" class="Tagline">{{ project.name }}</p>
+      </div>
+    </div>
+  </header>
+  <section>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button">
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+      <span class="fas fa-bars"></span>
+    </label>
+    {{ include('components/search.html.twig') }}
+    {% include 'components/topnav.html.twig' %}
+  </section>
+
+  {% include 'components/sidebar.html.twig' %}
+  <main id="Content">
+    {% block content %}{% endblock %}
+    {% include 'components/search-results.html.twig' %}
+  </main>
 </body>
 </html>
