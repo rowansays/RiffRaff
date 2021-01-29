@@ -1,5 +1,14 @@
 const shared = require('./shared.js')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const glob = require('glob');
+
+const globResult = glob.sync(shared.makePath + '/**/*.html')
+const htmlPlugins = !Array.isArray(globResult) ? [] : globResult.map(f => {
+  return new HtmlWebpackPlugin({
+    template: f,
+    filename: f
+  })
+})
 
 module.exports = {
   mode: 'development',
@@ -32,14 +41,5 @@ module.exports = {
     //port: 8080,
     open: 'Google Chrome',
   },
-  plugins: [
-    //new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: shared.makePath + '/index.html',
-      //inject: 'head',
-      //hash: true,
-
-      //showErrors: true,
-    })
-  ]
+  plugins: htmlPlugins
 }
