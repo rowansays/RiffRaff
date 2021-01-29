@@ -4,7 +4,11 @@
         <a href="{{ link(function) }}" class="headerlink"></a>
     </h4>
     {{ include('components/element-found-in.html.twig', {'node': function}) }}
-    {{ include('components/summary.html.twig', {'node': function}) }}
+
+    {% if function.summary %}
+      <p class="Summary">{{ function.summary }}</p>
+    {% endif %}
+
     {{ include('components/method-signature.html.twig', {'node': function}) }}
     {{ include('components/description.html.twig', {'node': function}) }}
     {{ include('components/method-arguments.html.twig', {'node': function}) }}

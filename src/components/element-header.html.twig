@@ -1,5 +1,7 @@
-{{ include('components/summary.html.twig') }}
+{% if node.summary %}
+  <p class="Summary">{{ node.summary }}</p>
+{% endif %}
+
 {{ include('components/description.html.twig') }}
 {{ include('components/tags.html.twig', {node: node}) }}
-
 {{ include('components/table-of-contents.html.twig') }}

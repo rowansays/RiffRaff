@@ -13,7 +13,11 @@
         <a href="{{ link(method) }}" class="headerlink"></a>
     </h4>
     {{ include('components/element-found-in.html.twig', {'node': method}) }}
-    {{ include('components/summary.html.twig', {'node': method}) }}
+
+    {% if method.summary %}
+      <p class="Summary">{{ method.summary }}</p>
+    {% endif %}
+
     {{ include('components/method-signature.html.twig', {'node': method}) }}
     {{ include('components/description.html.twig', {'node': method}) }}
     {{ include('components/method-arguments.html.twig', {'node': method}) }}
