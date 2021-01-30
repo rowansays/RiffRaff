@@ -45,7 +45,7 @@
     {{ include('components/TocBody.html.twig', {'name': 'Method', 'items': methods}) }}
   {% endif %}
 
-  {% if functions is not empty %}
-    {{ include('components/TocBody.html.twig', {'name': 'Function', 'items': functions}) }}
+  {% if node.functions is not empty %}
+    {{ include('components/TocBody.html.twig', {'name': 'Function', 'items': node.functions}) }}
   {% endif %}
 </table>
