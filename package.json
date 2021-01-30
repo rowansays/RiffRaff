@@ -6,7 +6,10 @@
   "scripts": {
     "dist": "webpack --config ./webpack/dist.js",
     "make": "webpack serve --config ./webpack/make.js",
-    "makeDocs": "phpdocWpHelpers && npm run make",
+    "makeEmpty": "npm run phpdocEmpty && npm run make",
+    "makeFull": "npm run phpdocFull && npm run make",
+    "phpdocEmpty": "phpdoc -d ./data/empty/ -t ./make/ --template='./src/' --force",
+    "phpdocFull": "phpdoc -d ./data/full/ -t ./make/ --template='./src/' --force",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rowan Weathers (https://rowanays.com/)",
