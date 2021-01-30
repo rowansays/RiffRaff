@@ -4,7 +4,7 @@
     {% include('components/breadcrumbs.html.twig') %}
 
     <article class="Element -file">
-        {{ include('titles/file.html.twig') }}
+        <h2 class="DocumentTitle">{{ node.name }}</h2>
         {{ include('components/element-header.html.twig') }}
 
         {{ include('components/constants.html.twig') }}

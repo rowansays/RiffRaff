@@ -4,7 +4,7 @@
     {% include 'components/breadcrumbs.html.twig' %}
 
     <article class="Element -namespace">
-        {{ include('titles/namespace.html.twig') }}
+        <h2 class="DocumentTitle">{{ node.name == '\\' ? 'API Documentation' : node.name }}</h2>
         {{ include('components/Toc.html.twig', {'namespaces': node.children}) }}
         {{ include('components/constants.html.twig') }}
         {{ include('components/functions.html.twig') }}

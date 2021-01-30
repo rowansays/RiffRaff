@@ -1,14 +1,52 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    {% include 'components/breadcrumbs.html.twig' %}
+  {% include 'components/breadcrumbs.html.twig' %}
 
-    <article class="Element -class">
-        {{ include('titles/class.html.twig') }}
-        {{ include('components/element-found-in.html.twig') }}
-        {{ include('components/element-header.html.twig') }}
-        {{ include('components/constants.html.twig') }}
-        {{ include('components/properties.html.twig') }}
-        {{ include('components/methods.html.twig') }}
-    </article>
+  <article class="Element -class">
+    <h2 class="DocumentTitle">
+      {{ node.name }}
+
+      {% if node.parent %}
+        <span class="phpdocumentor-element__extends">
+          extends {{ node.parent|route('class:short') }}
+        </span>
+      {% endif %}
+
+      {% if usesPackages %}
+        <div class="phpdocumentor-element__package">
+          in package
+          <ul class="phpdocumentor-breadcrumbs">
+            {% for breadcrumb in packages(node) %}
+              <li class="phpdocumentor-breadcrumb"><a href="{{ link(breadcrumb) }}">{{ breadcrumb.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if node.interfaces is not empty %}
+        <span class="phpdocumentor-element__implements">
+          implements
+          {% for interface in node.interfaces %}
+            {{ interface|route('class:short') }}{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </span>
+      {% endif %}
+
+      {% if node.usedTraits is not empty %}
+        <span class="phpdocumentor-element__extends">
+          Uses
+          {% for trait in node.usedTraits %}
+            {{ trait|route('class:short') }}{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </span>
+      {% endif %}
+    </h2>
+
+    {{ include('components/element-found-in.html.twig') }}
+    {{ include('components/element-header.html.twig') }}
+    {{ include('components/constants.html.twig') }}
+    {{ include('components/properties.html.twig') }}
+    {{ include('components/methods.html.twig') }}
+  </article>
 {% endblock %}

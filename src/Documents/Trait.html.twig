@@ -4,7 +4,17 @@
     {% include 'components/breadcrumbs.html.twig' %}
 
     <article class="Element -trait">
-        {{ include('titles/trait.html.twig') }}
+        <h2 class="DocumentTitle">
+          {{ node.name }}
+          {% if node.usedTraits is not empty %}
+            <span class="phpdocumentor-trait__extends">
+              Uses
+              {% for trait in node.usedTraits %}
+                {{ trait|route('trait:short') }}{% if not loop.last %}, {% endif %}
+              {% endfor %}
+            </span>
+          {% endif %}
+        </h2>
         {{ include('components/element-found-in.html.twig') }}
         {{ include('components/element-header.html.twig') }}
         {{ include('components/properties.html.twig') }}
