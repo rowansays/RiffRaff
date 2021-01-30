@@ -27,199 +27,138 @@
 /* # Template                                                                */
 /* ######################################################################### */
 
-%landmark {
-  max-width: 36rem;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-body {
-  > header {
-    @extend %landmark;
-    background: Color.secondary('bg');
-    color: Color.secondary('copy');
-    fill: Color.secondary('copy');
-    max-width: none;
-    a {
+#Nameplate {
+  background: Color.secondary('bg');
+  color: Color.secondary('copy');
+  fill: Color.secondary('copy');
+  max-width: none;
+  a {
+    color: inherit;
+  }
+  > div {
+    align-items: stretch;
+    background: inherit;
+    color: inherit;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  .Heading {
+    margin: 0 0.5rem 0 0;
+    padding: 0.5rem;
+    .SiteName {
       color: inherit;
-    }
-    > div {
-      align-items: stretch;
-      background: inherit;
-      color: inherit;
-      display: flex;
-      flex-grow: 1;
-      justify-content: space-between;
-      max-width: 36rem;
-      margin: 0 auto;
-    }
-    .Heading {
-      margin: 0 0.5rem 0 0;
-      padding: 0.5rem;
-      .SiteName {
-        color: inherit;
-        display: inline-block;
-        font-family: Font.headline();
-        font-size: 2.00rem;
-        font-weight: normal;
-        line-height: 1;
-        margin: 0;
-        position: relative;
-        @media(min-width: 630px) {
-          &:before {
-            color: Color.secondary('stress');
-            content: '\229B';
-            display: inline-block;
-            font-size: 3.5rem;
-            line-height: 0.8;
-            position: absolute;
-              top: -0.25rem;
-              left: -2.5rem;
-            text-align: left;
-            text-indent: -0.21rem;
-            width: 2.1rem;
-            height: 2.1rem;
-          }
-        }
-        &.Spin {
-          @media(min-width: 630px) {
-            &:before {
-              @include Animate.spin;
-            }
-          }
-        }
-        a {
-          text-decoration: none;
-          &:focus {
-            outline: 0;
-            text-decoration: underline;
-          }
-        }
-        .Bling {
-          color : Color.secondary('stress');
-        }
-      }
-      .Tagline {
-        color: inherit;
-        display: block;
-        font-size: 0.70rem;
-        margin: 0;
-        @media(min-width: 400px) {
-          font-size: 0.75rem;
-        }
-        @media(min-width: 520px) {
-          font-size: 0.80rem;
-        }
-      }
-      &.Focused,
-      &.Focused * {
-        background: Color.red('bg');
-        color: Color.red('copy');
-      }
-    }
-    #Navigation {
+      display: inline-block;
       font-family: Font.headline();
-      font-weight: bold;
+      font-size: 2.00rem;
+      font-weight: normal;
+      line-height: 1;
+      margin: 0;
       position: relative;
-      text-align: right;
-      .ToggleButton {
-        appearance: none;
-        background: inherit;
-        border: 0;
-        color: Color.secondary('stress');
-        cursor: pointer;
-        fill: Color.secondary('stress');
-        font-family: Font.headline();
-        font-size: 0.8rem;
-        margin: 0;
-        min-width: 44px;
-        min-height: 44px;
-        padding: 0;
-        .Icon {
-          background-color: inherit;
-          color: inherit;
-          fill: inherit;
-        }
+      a {
+        text-decoration: none;
         &:focus {
           outline: 0;
-          background: Color.secondary('stress');
-          color: Color.secondary('bg');
-          fill: Color.secondary('bg');
+          text-decoration: underline;
         }
       }
-      #NavigationToggleClose {
-        display: none;
+      .Bling {
+        color : Color.secondary('stress');
       }
-      .ToggleArea {
+    }
+    .Tagline {
+      color: inherit;
+      display: block;
+      font-size: 0.70rem;
+      margin: 0;
+      @media(min-width: 400px) {
+        font-size: 0.75rem;
+      }
+      @media(min-width: 520px) {
+        font-size: 0.80rem;
+      }
+    }
+    &.Focused,
+    &.Focused * {
+      background: Color.red('bg');
+      color: Color.red('copy');
+    }
+  }
+  #Navigation {
+    font-family: Font.headline();
+    font-weight: bold;
+    position: relative;
+    text-align: right;
+    .ToggleButton {
+      appearance: none;
+      background: inherit;
+      border: 0;
+      color: Color.secondary('stress');
+      cursor: pointer;
+      fill: Color.secondary('stress');
+      font-family: Font.headline();
+      font-size: 0.8rem;
+      margin: 0;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0;
+      .Icon {
+        background-color: inherit;
+        color: inherit;
+        fill: inherit;
+      }
+      &:focus {
+        outline: 0;
         background: Color.secondary('stress');
         color: Color.secondary('bg');
         fill: Color.secondary('bg');
-        position: absolute;
-        top: 44px;
-        right: 0;
-        z-index: 99999;
-        text-align: left;
-        width: 292px;
-        ul {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-        }
-        a {
-          align-items: center;
-          background: inherit;
-          color: inherit;
-          display: flex;
-          min-height: 44px;
-          padding: 0 0.5rem;
-          text-decoration: none;
-        }
-        a:focus {
-          background: Color.red('bg');
-          color: Color.red('copy');
-          outline: 0;
-        }
       }
     }
-  }
-  > footer {
-    @extend %landmark;
-    margin: 3rem auto 0;
-    max-width: 36rem;
-    padding: 0 1rem 1rem;
-    text-align: left;
-    .Menu {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      li {
-        display: inline-block;
-        &:before {
-          color: Color.primary('border');
-          content: '\272A\0020';
-        }
-        &:first-child {
-          &:before {
-            content: '';
-          }
-        }
+    #NavigationToggleClose {
+      display: none;
+    }
+    .ToggleArea {
+      background: Color.secondary('stress');
+      color: Color.secondary('bg');
+      fill: Color.secondary('bg');
+      position: absolute;
+      top: 44px;
+      right: 0;
+      z-index: 99999;
+      text-align: left;
+      width: 292px;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
       }
       a {
-        display: inline-block;
-        margin-right: 0.5rem;
+        align-items: center;
+        background: inherit;
+        color: inherit;
+        display: flex;
+        min-height: 44px;
+        padding: 0 0.5rem;
         text-decoration: none;
-        white-space: pre-wrap;
       }
-    }
-    @media(min-width: 520px) {
-      text-align: center;
+      a:focus {
+        background: Color.red('bg');
+        color: Color.red('copy');
+        outline: 0;
+      }
     }
   }
 }
-
 #Sidebar {
-  background: pink;
-  position: fixed;
+  @include Utility.VisibleBox();
+  #SearchBox {
+    border-bottom: 2px solid #ddd;
+  }
+  #SearchBoxInput {
+    /*border: none;*/
+  }
+
   ul {
     list-style: none;
     margin: 0;
@@ -231,16 +170,61 @@ body {
   p {
     margin: 0;
   }
-  @media (min-width: 450px) {
-    background: lightblue;
-    color: Color.primary('stress');
-  }
 }
 #Content {
   @include Utility.VisibleBox();
-  margin-left: 300px;
-  padding-right: 1rem;
 }
+
+
+
+@media (min-width: 600px) {
+  #Primary {
+    position: relative;
+    display: flex;
+  }
+  #Sidebar {
+    .MenuName {
+      color: Color.primary('stress');
+      font-weight: bold;
+    }
+    #SearchBox {
+      border-bottom: 2px solid #ddd;
+    }
+    #SearchBoxInput {
+      border: none;
+      display: block;
+      margin: 0;
+      width: 100%
+    }
+    border-right: 2px solid #ddd;
+    box-sizing: border-box;
+
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    height: 100vh;
+    overflow-y: auto;
+    position: sticky;
+      top: 0;
+    width: 300px;
+  }
+  #Content {
+    padding: 1rem 1rem 1rem 2rem;
+    padding-left: 2rem;
+    /*
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 16rem;
+
+    float: right;
+    width: 300px;
+    padding-right: 1rem;
+    */
+  }
+}
+
+
 
 
 .Toc {
@@ -273,7 +257,7 @@ body {
   .SectionName,
   .ItemName,
   .ItemDesc {
-    border-top: 0.125rem solid #ddd;
+    border-top: 3px solid #ddd;
     padding: 0.25rem 0.75rem 0.25rem 0;
     text-align: left;
     vertical-align: top;
