@@ -5,43 +5,54 @@
 
 @use './_Color.scss';
 
+/**
+ * These styles apply to all code elements
+ * whether they are dispalyed inline or as blocks.
+ */
 code {
-  color: black;
+  background: #fdfdfd;
+  border: 1px solid #d7d7d7;
+  border-radius: 0.15rem;
+  color: #8f6e4d; // 4.61:1 - WCAG AA Pass for normal text on #fff.
+  display: inline-block;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 1em;
+  font-size: 0.70em;
+  hyphens: none;
+  line-height: 1.15;
+  margin-right: 0.15rem;
+  padding: 0.15rem 0.20rem 0;
+  tab-size: 2;
   text-align: left;
+  white-space: normal;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  line-height: 1.5;
-  tab-size: 2;
-  hyphens: none;
 }
 
 /* Code blocks */
-.Signature {
-  margin: .5em 0;
-  overflow: visible;
-  padding: 0;
-}
-
-.Signature {
-  border: 1px solid Color.primary('accent');
-  border-left: 10px solid Color.primary('accent');
+code.Signature,
+pre[class*="language-"] > code {
   background: Color.primary('bg');
-  padding: 0 1em;
+  border-left-width: 0.50rem;
+  border-color: Color.primary('accent');
+  border-radius: 0 0.30rem 0.30rem 0;
+  color: Color.primary('copy');
   display: block;
+  line-height: 1.35;
   overflow: auto;
+  padding: 0.5rem 0.85rem;
 }
 
-/* Inline code */
-code:not(.Signature) {
-  background: Color.primary('bg');
-  border: 1px solid Color.primary('border');
-  color: Color.primary('stress');
-  display: inline-block;
-  padding: 0 .2em;
-  white-space: normal;
+code.Signature {
+  margin: .5em 0;
+}
+
+pre[class*="language-"] {
+  border: none;
+  padding: 0;
+  > code {
+    white-space: pre;
+  }
 }
 
 .token.comment,
@@ -81,8 +92,7 @@ code:not(.Signature) {
 .token.entity,
 .token.url,
 .token.variable {
-  color: #a67f59;
-  background: rgba(255, 255, 255, 0.5);
+  color: #8f6e4d; // 4.66:1 - WCAG AA Pass for normal text on #fff.
 }
 
 .token.atrule,
@@ -99,8 +109,7 @@ code:not(.Signature) {
 
 .language-css .token.string,
 .style .token.string {
-  color: #a67f59;
-  background: rgba(255, 255, 255, 0.5);
+  color: #8f6e4d; // 4.66:1 - WCAG AA Pass for normal text on #fff.
 }
 
 .token.important {

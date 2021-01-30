@@ -5,9 +5,6 @@
   {% set hasInterfaces = project.namespace.interfaces is not empty %}
   {% set hasTraits = project.namespace.traits is not empty %}
 
-<input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
-<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">Menu</label>
-
 <nav id="Sidebar">
   {% set menu = menu() %}
   {% if menu %}
