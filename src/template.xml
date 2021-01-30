@@ -6,24 +6,24 @@
   <transformations>
 
     <!--Artifact-->
-    <transformation writer="twig" source="./index.html.twig" artifact="index.html"/>
+    <transformation writer="twig" source="./Documents/Index.html.twig" artifact="index.html"/>
 
     <!--Query-->
-    <transformation writer="twig" source="./file.html.twig" query="files" />
-    <transformation writer="twig" source="./namespace.html.twig" query="indexes.namespaces" />
-    <transformation writer="twig" source="./package.html.twig" query="indexes.packages" />
-    <transformation writer="twig" source="./class.html.twig" query="indexes.classes" />
-    <transformation writer="twig" source="./interface.html.twig" query="indexes.interfaces" />
-    <transformation writer="twig" source="./trait.html.twig" query="indexes.traits" />
+    <transformation writer="twig" source="./Documents/File.html.twig" query="files" />
+    <transformation writer="twig" source="./Documents/Namespace.html.twig" query="indexes.namespaces" />
+    <transformation writer="twig" source="./Documents/Package.html.twig" query="indexes.packages" />
+    <transformation writer="twig" source="./Documents/Class.html.twig" query="indexes.classes" />
+    <transformation writer="twig" source="./Documents/Interface.html.twig" query="indexes.interfaces" />
+    <transformation writer="twig" source="./Documents/Trait.html.twig" query="indexes.traits" />
 
     <!--Artifact-->
-    <transformation writer="twig" source="./search.js.twig" artifact="js/search.js" />
-    <transformation writer="twig" source="./searchIndex.js.twig" artifact="js/searchIndex.js" />
-    <transformation writer="twig" source="./graphs/class.html.twig" artifact="graphs/classes.html" />
-    <transformation writer="twig" source="./reports/errors.html.twig" artifact="reports/errors.html" />
-    <transformation writer="twig" source="./reports/deprecated.html.twig" artifact="reports/deprecated.html" />
-    <transformation writer="twig" source="./reports/markers.html.twig" artifact="reports/markers.html" />
-    <transformation writer="twig" source="./indices/files.html.twig" artifact="indices/files.html" />
+    <transformation writer="twig" source="./Scripts/search.js.twig" artifact="js/search.js" />
+    <transformation writer="twig" source="./Scripts/searchIndex.js.twig" artifact="js/searchIndex.js" />
+    <transformation writer="twig" source="./Documents/GraphClass.html.twig" artifact="graphs/classes.html" />
+    <transformation writer="twig" source="./Documents/Errors.html.twig" artifact="reports/errors.html" />
+    <transformation writer="twig" source="./Documents/Deprecated.html.twig" artifact="reports/deprecated.html" />
+    <transformation writer="twig" source="./Documents/Markers.html.twig" artifact="reports/markers.html" />
+    <transformation writer="twig" source="./Documents/FileList.html.twig" artifact="indices/files.html" />
 
     <!--Source-->
     <transformation writer="RenderGuide" />
