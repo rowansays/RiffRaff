@@ -4,10 +4,10 @@
 // search form and to a search results pane identified by the following data attributes:
 //
 // 1. data-search-form
-// 2. data-search-results
+// 2. #SearchResults
 //
 // The data-search-form is expected to have a single input element of type 'search' that will trigger searching for
-// a series of results, were the data-search-results pane is expected to have a direct UL child that will be populated
+// a series of results, where the #SearchForm pane is expected to have a direct UL child that will be populated
 // with rendered results.
 //
 // The search has various stages, upon loading this stage the data-search-form receives the CSS class
@@ -66,27 +66,28 @@ var Search = (function () {
             if (callNow) func.apply(context, args);
         };
     }
-
     function close() {
-        // Start scroll prevention: https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
+        // Start scroll prevention
+        // https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
         const scrollY = document.body.style.top;
-        document.body.style.position = '';
+        document.body.classList.remove('PreventScroll')
         document.body.style.top = '';
         window.scrollTo(0, parseInt(scrollY || '0') * -1);
         // End scroll prevention
 
         var form = document.querySelector('[data-search-form]');
-        var searchResults = document.querySelector('[data-search-results]');
+        var searchResults = document.getElementById('SearchResults');
 
         form.classList.toggle('phpdocumentor-search--has-results', false);
-        searchResults.classList.add('phpdocumentor-search-results--hidden');
+        searchResults.classList.add('Hidden');
         var searchField = document.querySelector('[data-search-form] input[type="search"]');
         searchField.blur();
     }
 
     function search(event) {
-        // Start scroll prevention: https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
-        document.body.style.position = 'fixed';
+        // Start scroll prevention
+        // https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
+        document.body.classList.add('PreventScroll')
         document.body.style.top = `-${window.scrollY}px`;
         // End scroll prevention
 
@@ -94,10 +95,10 @@ var Search = (function () {
         event.stopPropagation();
 
         var form = document.querySelector('[data-search-form]');
-        var searchResults = document.querySelector('[data-search-results]');
-        var searchResultEntries = document.querySelector('[data-search-results] .phpdocumentor-search-results__entries');
+        var searchResults = document.getElementById('SearchResults')
+        var SearchResultList = document.querySelector('#SearchResultList');
 
-        searchResultEntries.innerHTML = '';
+        SearchResultList.innerHTML = '';
 
         if (!event.target.value) {
             close();
@@ -105,16 +106,16 @@ var Search = (function () {
         }
 
         form.classList.toggle('phpdocumentor-search--has-results', true);
-        searchResults.classList.remove('phpdocumentor-search-results--hidden');
+        searchResults.classList.remove('Hidden');
         var results = fuse.search(event.target.value, {limit: 25});
 
         results.forEach(function (result) {
             var entry = document.createElement("li");
-            entry.classList.add("phpdocumentor-search-results__entry");
-            entry.innerHTML += '<h3><a href="' + document.baseURI + result.url + '">' + result.name + "</h3>\n";
-            entry.innerHTML += '<small>' + result.fqsen + "</small>\n";
-            entry.innerHTML += '<div class="phpdocumentor-summary">' + result.summary + '</div>';
-            searchResultEntries.appendChild(entry)
+            entry.classList.add("SearchResult");
+            entry.innerHTML += '<h3 class="SearchResultName"><a href="' + document.baseURI + result.url + '">' + result.name + "</h3>";
+            entry.innerHTML += '<span class="SearchResultPath">' + result.fqsen + "</span>";
+            entry.innerHTML += '<div class="SearchResultDesc">' + result.summary + '</div>';
+            SearchResultList.appendChild(entry)
         });
     }
 
@@ -133,10 +134,10 @@ var Search = (function () {
         var form = document.querySelector('[data-search-form]');
         var searchField = document.querySelector('[data-search-form] input[type="search"]');
 
-        var closeButton = document.querySelector('.phpdocumentor-search-results__close');
+        var closeButton = document.getElementById('CloseSearchDialog');
         closeButton.addEventListener('click', function() { close() }.bind(this));
 
-        var searchResults = document.querySelector('[data-search-results]');
+        var searchResults = document.getElementById('SearchResults')
         searchResults.addEventListener('click', function() { close() }.bind(this));
 
         form.classList.add('phpdocumentor-search--active');

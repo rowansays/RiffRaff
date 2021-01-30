@@ -182,9 +182,6 @@ body {
       }
     }
   }
-  > section {
-    @extend %landmark;
-  }
   > footer {
     @extend %landmark;
     margin: 3rem auto 0;
@@ -397,5 +394,118 @@ main {
         left: -1.7rem;
       }
     }
+  }
+}
+
+
+/* ######################################################################### */
+/* # Search Results                                                          */
+/* ######################################################################### */
+
+body.PreventScroll {
+  position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#SearchResults {
+  backdrop-filter: blur(3px);
+  position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  padding: 0;
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity .3s, background .3s;
+  &.Hidden {
+    background: transparent;
+    backdrop-filter: blur(0);
+    opacity: 0;
+    pointer-events: none;
+  }
+  header {
+    padding: 0.30rem 0.30rem 0.30rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+  }
+}
+#CloseSearchDialog {
+  background: transparent;
+  border: none;
+  border-radius: 0.30rem;
+  color: Color.secondary('copy');
+  display: inline-block;
+  min-height: 44px;
+  padding: 0 0.75rem;
+  &:active,
+  &:focus {
+    background: Color.secondary('stress');
+    border: none;
+    outline: none;
+  }
+}
+#SearchDialog {
+  width: 100%;
+  background: Color.secondary('bg');
+  color: Color.secondary('copy');
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#SearchResultList {
+  list-style: none;
+  overflow: auto;
+  padding: 1rem;
+  margin: 0;
+  background: Color.primary('bg');
+  color: Color.primary('copy');
+  .SearchResult {
+    border-bottom: 1px solid var(--table-separator-color);
+    margin-bottom: 1.75rem;
+    text-align: left;
+    h3 {
+      color: Color.primary('accent');
+      font-size: 1.30rem;
+      margin: 0;
+      a {
+        text-decoration: none
+      }
+    }
+    .SearchResultPath {
+      color: Color.primary('copy');
+      display: block;
+      font-size: 0.75rem;
+      margin: 0.20rem 0 0;
+      word-break: break-word;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  #SearchResults {
+    padding: 0 1rem;
+    header {
+      border-radius: 0.35rem 0.35rem 0 0;
+    }
+  }
+  #SearchDialog {
+    margin: 1rem auto;
+    max-width: 40rem;
+    border: 2px solid grey;
+    box-shadow: 0 2px 5px Color.secondary('bg');
+    max-height: 90%;
+    border-radius: 0.35rem;
   }
 }
