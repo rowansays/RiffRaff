@@ -13,7 +13,7 @@ const htmlPlugins = !Array.isArray(globResult) ? [] : globResult.map(f => {
 module.exports = {
   mode: 'development',
   devtool: false,
-  entry: shared.homePath + '/index.js',
+  entry: shared.codePath + '/index.js',
   target: 'web', // https://github.com/webpack/webpack-dev-server/issues/2758#issuecomment-704247909
   output: {
     filename: 'make.js',

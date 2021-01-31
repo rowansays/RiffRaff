@@ -1,0 +1,18 @@
+{#
+  Search Index
+  This file is parsed by phpDocumentor to create the search index used by
+  Fuse.js.
+#}
+{% set baseUrl = renderBaseUrlHeader() %}
+[
+  {% for element in project.indexes.elements %}
+  {% set entry = {
+    "fqsen": element.fullyQualifiedStructuralElementName|e,
+    "name": element.name,
+    "summary": element.summary,
+    "url": link(element)
+  } %}
+  {{ entry|json_encode()|raw }}
+  {% if not loop.last %},{% endif %}
+  {% endfor %}
+]

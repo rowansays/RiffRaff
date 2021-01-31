@@ -18,7 +18,7 @@
 
     <!--Artifact-->
     <transformation writer="twig" source="./Scripts/search.js.twig" artifact="js/search.js" />
-    <transformation writer="twig" source="./Scripts/searchIndex.js.twig" artifact="js/searchIndex.js" />
+    <transformation writer="twig" source="./Scripts/searchIndex.json.twig" artifact="js/searchIndex.json" />
     <transformation writer="twig" source="./Documents/GraphClass.html.twig" artifact="graphs/classes.html" />
     <transformation writer="twig" source="./Documents/Errors.html.twig" artifact="reports/errors.html" />
     <transformation writer="twig" source="./Documents/Deprecated.html.twig" artifact="reports/deprecated.html" />
