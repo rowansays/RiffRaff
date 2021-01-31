@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "babel-plugin-prismjs": "^2.0.1",
+    "core-js": "^3.8.3",
     "fuse.js": "^6.4.6",
     "prismjs": "^1.23.0"
   },
