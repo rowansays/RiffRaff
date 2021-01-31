@@ -1,15 +1,11 @@
+import Fuse from 'fuse.js'
 import Prism from 'prismjs';
-Prism.highlightAll();
-
-// Styles
 import './src/index.scss'
 
-
-
-console.log('HELLO THERE');
+Prism.highlightAll();
 
 if (module.hot) {
   module.hot.accept('./src/index.scss', function() {
-    console.log('Accepting the updated SCSS module!');
+    console.log('Accepting the updated styles.');
   })
 }

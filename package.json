@@ -39,15 +39,23 @@
   },
   "dependencies": {
     "babel-plugin-prismjs": "^2.0.1",
+    "fuse.js": "^6.4.6",
     "prismjs": "^1.23.0"
   },
   "babel": {
     "plugins": [
-      ["prismjs", {
-          "languages": ["php"],
-          "plugins": ["line-numbers"],
+      [
+        "prismjs",
+        {
+          "languages": [
+            "php"
+          ],
+          "plugins": [
+            "line-numbers"
+          ],
           "css": true
-      }]
+        }
+      ]
     ]
   },
   "browserslist": [
