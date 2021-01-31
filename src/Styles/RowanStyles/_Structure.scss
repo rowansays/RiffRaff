@@ -154,9 +154,50 @@
   @include Utility.VisibleBox();
   #SearchBox {
     border-bottom: 2px solid #ddd;
+    box-sizing: content-box;
+    height: 44px;
+    position: relative;
+    width: 298px;
+
+    background: light-yellow;
   }
   #SearchBoxInput {
-    /*border: none;*/
+    appearance: none;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 0;
+    display: block;
+    font-size: 0.8rem;
+    height: 44px;
+    min-height: 0;
+    margin: 0;
+    padding: 0 0.5rem;
+    width: 254px;
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+  }
+  #SubmitSearch {
+    background: Color.primary('bg');
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: 0;
+    width: 44px;
+    height: 44px;
+    position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: auto;
+    &:focus {
+      background: Color.primary('stress');
+      border: 3px solid Color.primary('bg');
+      border-radius: 0.5rem;
+      color: Color.primary('bg');
+    }
   }
 
   ul {
@@ -191,10 +232,6 @@
       border-bottom: 2px solid #ddd;
     }
     #SearchBoxInput {
-      border: none;
-      display: block;
-      margin: 0;
-      width: 100%
     }
     border-right: 2px solid #ddd;
     box-sizing: border-box;
