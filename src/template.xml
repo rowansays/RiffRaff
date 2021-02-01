@@ -26,6 +26,7 @@
     <!--Scripts-->
     <transformation writer="twig" source="./Scripts/search.js.twig" artifact="js/search.js" />
     <transformation writer="twig" source="./Scripts/searchIndex.json.twig" artifact="js/searchIndex.json" />
+    <transformation writer="twig" source="./Scripts/menu.txt.twig" artifact="js/menu.txt" />
 
     <!--Source-->
     <transformation writer="RenderGuide" />
