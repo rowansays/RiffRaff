@@ -13,6 +13,7 @@
 </head>
 <body id="top">
   <header id="Nameplate">
+    <a id="SkipToContent" href="#Content">Skip to content</a>
     <div>
       <div class="Heading">
         <h1 id="SiteName" class="SiteName">
@@ -26,7 +27,7 @@
     <nav id="Sidebar">
       {% include 'components/sidebar.html.twig' %}
     </nav>
-    <main id="Content">
+    <main id="Content" tabindex="-1">
       {% block content %}{% endblock %}
     </main>
   </div>
