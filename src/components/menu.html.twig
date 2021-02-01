@@ -1,17 +1,95 @@
-{% if isChild|default(false) == false %}
-<h2 class="phpdocumentor-sidebar__root-package">
-{% endif %}
-    <a href="{{ menuItem.path }}">{{ menuItem.label }}</a>
-{% if isChild|default(false) == false %}
-</h2>
-{% endif %}
+{#
+  Menu
 
-{% if menuItem.items is not empty %}
-<ul class="phpdocumentor-list">
-    {% for child in menuItem.items|default([]) %}
-        <li>
-            {{ include('menu.html.twig', {menuItem: child, isChild: true}, with_context = false) }}
-        </li>
+  This file contains markup for the following areas that work together to enable
+  visitors to navigate the generated documentation site.
+
+    1. Search form
+    2. Feedback Box
+    2. Search results box
+    3. Link list box
+
+#}
+
+{# Create short names for a few boolean checks #}
+  {% set hasClasses = project.namespace.classes is not empty %}
+  {% set hasConstants = project.namespace.constants is not empty %}
+  {% set hasFunctions = project.namespace.functions is not empty %}
+  {% set hasInterfaces = project.namespace.interfaces is not empty %}
+  {% set hasTraits = project.namespace.traits is not empty %}
+
+<div id="MenuItems">
+  {% set menu = menu() %}
+  {% if menu %}
+    <p class="MenuName"><a href="{{ menu.path }}">{{ menu.label }}</a></p>
+    {% for menuItem in menu.items %}
+      {{ include('menu.html.twig', {menuItem: menuItem}, with_context = false) }}
     {% endfor %}
-</ul>
-{% endif %}
+  {% endif %}
+
+  <ul>
+    <li>
+      <p class="MenuName">Namespaces</p>
+      {% if usesNamespaces or not usesPackages %}
+        {% if hasClasses or hasConstants or hasFunctions or hasInterfaces or hasTraits %}
+          <p>{{ project.namespace|route('Global') }}</p>
+        {% endif %}
+        <ul>
+          {% for namespace in project.namespace.children %}
+            <li>
+              <p>{{ namespace|route('class:short') }}</p>
+              <ul class="phpdocumentor-list">
+                {% for child in namespace.children %}
+                  <li>{{ child|route('class:short') }}</li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+
+  {% if usesPackages %}
+    <li>
+      <p class="MenuName">Packages</p>
+      <ul>
+        {% for package in project.package.children %}
+          <li>
+            <p>{{ package|route('class:short') }}</p>
+            {% if package.children is not empty %}
+              <ul class="phpdocumentor-list">
+                {% for child in package.children %}
+                  <li>{{ child|route('class:short') }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endif %}
+
+
+    <li>
+      <p class="MenuName">Collections</p>
+      <ul>
+        {% if project.settings.custom['graphs.enabled'] %}
+          <li><a href="graphs/classes.html">Class Diagram</a></li>
+        {% endif %}
+
+        {% if filesWithDeprecatedElements is not empty %}
+          <li><a href="reports/deprecated.html">Deprecated</a></li>
+        {% endif %}
+
+        {% if filesWithErrors is not empty %}
+          <li><a href="reports/errors.html">Errors</a></li>
+        {% endif %}
+
+        {% if filesWithMarkers is not empty %}
+          <li><a href="reports/markers.html">Markers</a></li>
+        {% endif %}
+        <li><a href="indices/files.html">Files</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>

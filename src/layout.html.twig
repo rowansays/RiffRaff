@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   {% endblock %}
 </head>
-<body id="top">
+<body>
   <header id="Nameplate">
     <a id="SkipToContent" href="#Content">Skip to content</a>
     <div>
@@ -24,13 +24,12 @@
     </div>
   </header>
   <div id="Primary">
-    <nav id="Sidebar">
-      {% include 'components/sidebar.html.twig' %}
+    <nav id="Menu">
+      {% include 'components/Menu.html.twig' %}
     </nav>
     <main id="Content" tabindex="-1">
       {% block content %}{% endblock %}
     </main>
   </div>
-  {% include 'components/search-results.html.twig' %}
 </body>
 </html>

@@ -7,8 +7,8 @@
 [
   {% for element in project.indexes.elements %}
   {% set entry = {
-    "fqsen": element.fullyQualifiedStructuralElementName|e,
     "name": element.name,
+    "path": element.fullyQualifiedStructuralElementName|e,
     "summary": element.summary,
     "url": link(element)
   } %}

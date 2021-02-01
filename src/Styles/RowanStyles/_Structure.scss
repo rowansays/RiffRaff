@@ -24,7 +24,7 @@
 
 
 /* ######################################################################### */
-/* # Template                                                                */
+/* # Nameplate                                                               */
 /* ######################################################################### */
 
 #Nameplate {
@@ -85,121 +85,74 @@
       color: Color.red('copy');
     }
   }
-  #Navigation {
-    font-family: Font.headline();
-    font-weight: bold;
-    position: relative;
-    text-align: right;
-    .ToggleButton {
-      appearance: none;
-      background: inherit;
-      border: 0;
-      color: Color.secondary('stress');
-      cursor: pointer;
-      fill: Color.secondary('stress');
-      font-family: Font.headline();
-      font-size: 0.8rem;
-      margin: 0;
-      min-width: 44px;
-      min-height: 44px;
-      padding: 0;
-      .Icon {
-        background-color: inherit;
-        color: inherit;
-        fill: inherit;
-      }
-      &:focus {
-        outline: 0;
-        background: Color.secondary('stress');
-        color: Color.secondary('bg');
-        fill: Color.secondary('bg');
-      }
-    }
-    #NavigationToggleClose {
-      display: none;
-    }
-    .ToggleArea {
-      background: Color.secondary('stress');
-      color: Color.secondary('bg');
-      fill: Color.secondary('bg');
-      position: absolute;
-      top: 44px;
-      right: 0;
-      z-index: 99999;
-      text-align: left;
-      width: 292px;
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      a {
-        align-items: center;
-        background: inherit;
-        color: inherit;
-        display: flex;
-        min-height: 44px;
-        padding: 0 0.5rem;
-        text-decoration: none;
-      }
-      a:focus {
-        background: Color.red('bg');
-        color: Color.red('copy');
-        outline: 0;
-      }
-    }
+
+}
+
+
+/* ######################################################################### */
+/* # Menu                                                                    */
+/* ######################################################################### */
+
+
+#Search {
+  border-bottom: 2px solid #ddd;
+  box-sizing: content-box;
+  height: 44px;
+  position: relative;
+  width: 298px;
+}
+#SearchPhrase {
+  appearance: none;
+  border: 3px solid transparent;
+  box-sizing: border-box;
+  border-radius: 0;
+  display: block;
+  font-size: 0.8rem;
+  height: 44px;
+  min-height: 0;
+  margin: 0;
+  padding: 0 0.5rem;
+  width: 254px;
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  &:focus {
+    box-shadow: inset 0 0 0 3px Color.primary('copy');
+    outline: 0;
   }
 }
-#Sidebar {
+label[for=SubmitSearch] {
+  background: Color.primary('bg');
+  border: 3px solid Color.primary('bg');
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+  outline: 0;
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+  transition: background 0.3s, color 0.3s;
+  width: 44px;
+  height: 44px;
+}
+#SubmitSearch {
+  @extend %VisuallyHidden;
+}
+#SubmitSearch:focus + label {
+  background: Color.primary('copy');
+  color: Color.primary('bg');
+}
+
+
+#Menu {
   @include Utility.VisibleBox();
-  #SearchBox {
-    border-bottom: 2px solid #ddd;
-    box-sizing: content-box;
-    height: 44px;
-    position: relative;
-    width: 298px;
-
-    background: light-yellow;
-  }
-  #SearchBoxInput {
-    appearance: none;
-    border: none;
-    box-sizing: border-box;
-    border-radius: 0;
-    display: block;
-    font-size: 0.8rem;
-    height: 44px;
-    min-height: 0;
-    margin: 0;
-    padding: 0 0.5rem;
-    width: 254px;
-    position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-  }
-  #SubmitSearch {
-    background: Color.primary('bg');
-    border: none;
-    box-sizing: border-box;
-    cursor: pointer;
-    outline: 0;
-    width: 44px;
-    height: 44px;
-    position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: auto;
-    &:focus {
-      background: Color.primary('stress');
-      border: 3px solid Color.primary('bg');
-      border-radius: 0.5rem;
-      color: Color.primary('bg');
-    }
-  }
-
   ul {
     list-style: none;
     margin: 0;
@@ -238,26 +191,40 @@
     position: relative;
     display: flex;
   }
-  #Sidebar {
-    .MenuName {
-      color: Color.primary('stress');
-      font-weight: bold;
-    }
-    #SearchBox {
-      border-bottom: 2px solid #ddd;
-    }
-    #SearchBoxInput {
-    }
+  #Menu {
     border-right: 2px solid #ddd;
     box-sizing: border-box;
-
     flex-shrink: 0;
     font-size: 0.8rem;
     height: 100vh;
     overflow-y: auto;
+    overflow-x: hidden;
     position: sticky;
       top: 0;
     width: 300px;
+
+    scrollbar-width: thin;
+    scrollbar-color: Color.primary('copy') transparent;
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: Color.primary('copy');
+      background-clip: padding-box;
+      border: 3px solid transparent;
+      border-radius: 6px;
+    }
+    .MenuName {
+      color: Color.primary('stress');
+      font-weight: bold;
+    }
+  }
+  #Search {
+    border-bottom: 2px solid #ddd;
+    margin: 0;
   }
   #Content {
     padding: 1rem 1rem 1rem 2rem;
@@ -274,7 +241,34 @@
     padding-right: 1rem;
     */
   }
+  .SearchResult {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1.75rem;
+    text-align: left;
+    padding : 0.5rem;
+    margin:0;
+    h3 {
+      color: Color.primary('accent');
+      font-size: 0.90rem;
+      margin: 0;
+      a {
+        text-decoration: none
+      }
+    }
+    .SearchResultPath {
+      color: Color.primary('copy');
+      display: block;
+      font-size: 0.6rem;
+      margin: 0.20rem 0 0;
+      word-break: break-word;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
+
+
 
 
 
@@ -430,119 +424,5 @@ main {
         left: -1.7rem;
       }
     }
-  }
-}
-
-
-/* ######################################################################### */
-/* # Search Results                                                          */
-/* ######################################################################### */
-
-body.PreventScroll {
-  position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-#SearchResults {
-  backdrop-filter: blur(3px);
-  position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  padding: 0;
-  opacity: 1;
-  pointer-events: all;
-  transition: opacity .3s, background .3s;
-  &.Hidden {
-    background: transparent;
-    backdrop-filter: blur(0);
-    opacity: 0;
-    pointer-events: none;
-  }
-  header {
-    padding: 0.30rem 0.30rem 0.30rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    h2 {
-      font-size: 1.1rem;
-      margin: 0;
-    }
-  }
-}
-#CloseSearchDialog {
-  background: transparent;
-  border: none;
-  border-radius: 0.30rem;
-  color: Color.secondary('copy');
-  cursor: pointer;
-  display: inline-block;
-  min-height: 44px;
-  padding: 0 0.75rem;
-  &:active,
-  &:focus {
-    background: Color.secondary('stress');
-    border: none;
-    outline: none;
-  }
-}
-#SearchDialog {
-  width: 100%;
-  background: Color.secondary('bg');
-  color: Color.secondary('copy');
-  max-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-#SearchResultList {
-  list-style: none;
-  overflow: auto;
-  padding: 1rem;
-  margin: 0;
-  background: Color.primary('bg');
-  color: Color.primary('copy');
-  .SearchResult {
-    border-bottom: 1px solid var(--table-separator-color);
-    margin-bottom: 1.75rem;
-    text-align: left;
-    h3 {
-      color: Color.primary('accent');
-      font-size: 1.30rem;
-      margin: 0;
-      a {
-        text-decoration: none
-      }
-    }
-    .SearchResultPath {
-      color: Color.primary('copy');
-      display: block;
-      font-size: 0.75rem;
-      margin: 0.20rem 0 0;
-      word-break: break-word;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-@media (min-width: 500px) {
-  #SearchResults {
-    padding: 0 1rem;
-    header {
-      border-radius: 0.35rem 0.35rem 0 0;
-    }
-  }
-  #SearchDialog {
-    margin: 1rem auto;
-    max-width: 40rem;
-    border: 2px solid grey;
-    box-shadow: 0 2px 5px Color.secondary('bg');
-    max-height: 90%;
-    border-radius: 0.35rem;
   }
 }
