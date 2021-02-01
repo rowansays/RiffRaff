@@ -17,13 +17,15 @@
     <transformation writer="twig" source="./Documents/Trait.html.twig" query="indexes.traits" />
 
     <!--Artifact-->
-    <transformation writer="twig" source="./Scripts/search.js.twig" artifact="js/search.js" />
-    <transformation writer="twig" source="./Scripts/searchIndex.json.twig" artifact="js/searchIndex.json" />
     <transformation writer="twig" source="./Documents/GraphClass.html.twig" artifact="graphs/classes.html" />
     <transformation writer="twig" source="./Documents/Errors.html.twig" artifact="reports/errors.html" />
     <transformation writer="twig" source="./Documents/Deprecated.html.twig" artifact="reports/deprecated.html" />
     <transformation writer="twig" source="./Documents/Markers.html.twig" artifact="reports/markers.html" />
     <transformation writer="twig" source="./Documents/FileList.html.twig" artifact="indices/files.html" />
+
+    <!--Scripts-->
+    <transformation writer="twig" source="./Scripts/search.js.twig" artifact="js/search.js" />
+    <transformation writer="twig" source="./Scripts/searchIndex.json.twig" artifact="js/searchIndex.json" />
 
     <!--Source-->
     <transformation writer="RenderGuide" />
