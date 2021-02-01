@@ -6,7 +6,8 @@ const globResult = glob.sync(shared.makePath + '/**/*.html')
 const htmlPlugins = !Array.isArray(globResult) ? [] : globResult.map(f => {
   return new HtmlWebpackPlugin({
     template: f,
-    filename: f
+    filename: f,
+    inject: 'body'
   })
 })
 
